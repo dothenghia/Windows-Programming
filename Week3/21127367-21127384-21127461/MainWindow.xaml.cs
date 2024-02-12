@@ -19,7 +19,7 @@ namespace Week3
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// </summary> 
     /// 
     class DisplayFileInfo
     {
