@@ -39,8 +39,9 @@ namespace Week3
     {
         private DriveInfo[] allDrives;
         private String path = "";
-        DirectoryInfo curDir;
-        List<FileSystemInfo> curItems;
+        // DirectoryInfo curDir;
+        // List<FileSystemInfo> curItems;
+
         public MainWindow()
         {
             InitializeComponent();

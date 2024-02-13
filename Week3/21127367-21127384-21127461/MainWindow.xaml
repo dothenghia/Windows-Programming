@@ -13,6 +13,7 @@
              </ComboBox>
             <Label x:Name="PathLabel"  HorizontalAlignment="Right"></Label>
         </StackPanel>
+        
         <ListView x:Name="DiskView" SizeChanged="DiskViewColumnChange">
             <ListView.Resources>
                 <Style TargetType="{x:Type ListViewItem}">

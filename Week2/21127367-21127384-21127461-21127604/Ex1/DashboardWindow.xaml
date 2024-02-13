@@ -7,7 +7,8 @@
             <Button Content="Previous" Click="Previous_Click" DockPanel.Dock="Left" Width="70" Height="30"/>
             <Button Content="Next" Click="Next_Click" DockPanel.Dock="Right" Width="70" Height="30" Margin="28,0,0,0"/>
         </StackPanel>
-        <TextBlock x:Name="txtCaption" Height="16" DockPanel.Dock="Bottom" Text="day la caption" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+        <TextBlock x:Name="txtCaption" Height="16" DockPanel.Dock="Bottom" Text="day la caption" 
+            FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,6,0,0"/>
         <Image x:Name="imgSlideshow" Stretch="UniformToFill"/>
     </DockPanel>
 </Window>
