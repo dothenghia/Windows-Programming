@@ -24,7 +24,6 @@ D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\bin\Debug\net6.0-wi
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\bin\Debug\net6.0-windows\Week3.runtimeconfig.json
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\bin\Debug\net6.0-windows\Week3.dll
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\bin\Debug\net6.0-windows\Week3.pdb
-D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-windows\Week3.csproj.AssemblyReference.cache
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-windows\MainWindow.g.cs
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-windows\App.g.cs
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-windows\Week3_MarkupCompile.cache
@@ -40,3 +39,4 @@ D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-wi
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-windows\Week3.pdb
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-windows\Week3.genruntimeconfig.cache
 D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-windows\ref\Week3.dll
+D:\Code\Windows-Programming\Week3\21127367-21127384-21127461\obj\Debug\net6.0-windows\Week3.sourcelink.json
