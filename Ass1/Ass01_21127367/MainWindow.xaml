@@ -95,7 +95,7 @@
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                     
                     <!-- ComboBox of Hard Drives + Label of Current Directory -->
-                    <ComboBox x:Name="LeftDrives_ComboBox" Width="52"/>
+                    <ComboBox x:Name="LeftDrives_ComboBox" Width="52" SelectionChanged="LeftComboBox_SelectionChanged"/>
                     <Label x:Name="LeftPath_Label"/>
                 </StackPanel>
 
@@ -106,22 +106,23 @@
                     
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"></GridViewColumn>
-                            <GridViewColumn Header="Type"></GridViewColumn>
-                            <GridViewColumn Header="Size"></GridViewColumn>
-                            <GridViewColumn Header="Date"></GridViewColumn>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                            <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
             </DockPanel>
 
 
+            
             <!-- =============== RIGHT WINDOW =============== -->
             <DockPanel x:Name="RightWindow_DockPanel" Grid.Row="0" Grid.Column="2" LastChildFill="True">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
 
                     <!-- ComboBox of Hard Drives + Label of Current Directory -->
-                    <ComboBox x:Name="RightDrives_ComboBox" Width="52"/>
+                    <ComboBox x:Name="RightDrives_ComboBox" Width="52" SelectionChanged="RightComboBox_SelectionChanged"/>
                     <Label x:Name="RightPath_Label"/>
                 </StackPanel>
 
@@ -132,10 +133,10 @@
 
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name"></GridViewColumn>
-                            <GridViewColumn Header="Type"></GridViewColumn>
-                            <GridViewColumn Header="Size"></GridViewColumn>
-                            <GridViewColumn Header="Date"></GridViewColumn>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                            <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
