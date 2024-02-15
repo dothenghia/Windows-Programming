@@ -64,7 +64,7 @@
                     <StackPanel Width="2" Background="#FFC3C3C3" Margin="10,6,10,6"></StackPanel>
 
                     <!-- Resize button -->
-                    <Button x:Name="Resize_Button" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
+                    <Button x:Name="Resize_Button" Click="Resize_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
                         <StackPanel Margin="0,7,0,0">
                             <Image Source="images/resize.png" Margin="8,0,8,0"/>
                             <TextBlock TextAlignment="Center" FontSize="13.2">Reset</TextBlock>

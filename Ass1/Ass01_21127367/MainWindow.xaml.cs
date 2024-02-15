@@ -45,7 +45,7 @@ namespace Ass01_21127367
         private string leftPath = "";
         private string rightPath = "";
 
-        // Initialization
+        // =============== Initialization
         public MainWindow()
         {
             InitializeComponent();
@@ -57,7 +57,7 @@ namespace Ass01_21127367
         }
 
 
-        // Responsive size of Grid Columns of LEFT & RIGHT WINDOW
+        // =============== Responsive size of Grid Columns of LEFT & RIGHT WINDOW
         private void leftListView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (LeftList_ListView.View != null && LeftList_ListView.View is GridView grid) {
@@ -84,24 +84,35 @@ namespace Ass01_21127367
         }
 
 
-        // Selection Handler of LEFT & RIGHT ComboBox
+        // =============== Selection Handler of LEFT & RIGHT ComboBox
         private void leftComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox DiskComboBox = (ComboBox)sender;
-            LeftPath_Label.Content = DiskComboBox.SelectedItem as string;
-            leftPath = DiskComboBox.SelectedItem as string;
-            showDiskView(leftPath, LeftList_ListView);
+            string selectedPath = DiskComboBox.SelectedItem as string;
+
+            if (!string.IsNullOrEmpty(selectedPath))
+            {
+                LeftPath_Label.Content = selectedPath;
+                leftPath = selectedPath;
+                showDirectoryInformation(leftPath, LeftList_ListView);
+            }
         }
         private void rightComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox DiskComboBox = (ComboBox)sender;
-            RightPath_Label.Content = DiskComboBox.SelectedItem as string;
-            rightPath = DiskComboBox.SelectedItem as string;
-            showDiskView(rightPath, RightList_ListView);
+            string selectedPath = DiskComboBox.SelectedItem as string;
+
+            if (!string.IsNullOrEmpty(selectedPath))
+            {
+                RightPath_Label.Content = selectedPath;
+                rightPath = selectedPath;
+                showDirectoryInformation(rightPath, RightList_ListView);
+            }
         }
 
 
-        private void showDiskView(string path, ListView lv)
+        // =============== Show Directory Information
+        private void showDirectoryInformation(string path, ListView lv)
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(@"" + path);
             DirectoryInfo[] subDirectoryInfos = directoryInfo.GetDirectories();
@@ -114,10 +125,39 @@ namespace Ass01_21127367
             }
             foreach (FileInfo file in files)
             {
-                item.Add(new MyFileInfo(file.Name, file.Extension, file.Length.ToString(), file.CreationTime.ToString()));
+                item.Add(new MyFileInfo(file.Name, file.Extension, convertSize(file.Length), file.CreationTime.ToString()));
             }
             lv.ItemsSource = item;
         }
+
+        // Convert size of file into Unit ngắn gọn
+        private string convertSize(long size)
+        {
+            string[] suffixes = { "B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+            int suffixIndex = 0;
+
+            double doubleSize = size;
+
+            while (doubleSize >= 1024 && suffixIndex < suffixes.Length - 1) {
+                doubleSize /= 1024;
+                suffixIndex++;
+            }
+
+            return $"{doubleSize:0.##} {suffixes[suffixIndex]}";
+        }
+
+
+        // =============== CLICK HANDLERS ===============
+        // Resize Button - Click Handler
+        private void Resize_Click(object sender, EventArgs e)
+        {
+            TwoWindows_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
+            TwoWindows_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+        }
+
+
+
+
     }
 }
 
