@@ -65,10 +65,17 @@
 
                     <!-- Resize button -->
                     <Button x:Name="Resize_Button" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
-                        <StackPanel OverridesDefaultStyle="True" Margin="0,7,0,0">
+                        <StackPanel Margin="0,7,0,0">
                             <Image Source="images/resize.png" Margin="8,0,8,0"/>
-                            <TextBlock TextAlignment="Center" FontSize="13.2" TextWrapping="Wrap">Reset</TextBlock>
-                            <TextBlock TextAlignment="Center" FontSize="13.2" TextWrapping="Wrap" Margin="0,-6,0,0">View</TextBlock>
+                            <TextBlock TextAlignment="Center" FontSize="13.2">Reset</TextBlock>
+                            <TextBlock TextAlignment="Center" FontSize="13.2" Margin="0,-6,0,0">View</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!-- Paste button -->
+                    <Button x:Name="Paste_Button" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Margin="8,0,8,0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Image Source="images/paste.png" Margin="6,0,6,0"/>
+                            <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Paste</TextBlock>
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -95,13 +102,14 @@
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                     
                     <!-- ComboBox of Hard Drives + Label of Current Directory -->
-                    <ComboBox x:Name="LeftDrives_ComboBox" Width="52" SelectionChanged="LeftComboBox_SelectionChanged"/>
+                    <ComboBox x:Name="LeftDrives_ComboBox" Width="52" SelectionChanged="leftComboBox_SelectionChanged"/>
                     <Label x:Name="LeftPath_Label"/>
+                    
                 </StackPanel>
 
                 
                 <!-- ListView of Current Directory Information -->
-                <ListView x:Name="LeftList_ListView" SizeChanged="LeftListView_SizeChanged">
+                <ListView x:Name="LeftList_ListView" SizeChanged="leftListView_SizeChanged">
                     
                     
                     <ListView.View>
@@ -122,13 +130,14 @@
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
 
                     <!-- ComboBox of Hard Drives + Label of Current Directory -->
-                    <ComboBox x:Name="RightDrives_ComboBox" Width="52" SelectionChanged="RightComboBox_SelectionChanged"/>
+                    <ComboBox x:Name="RightDrives_ComboBox" Width="52" SelectionChanged="rightComboBox_SelectionChanged"/>
                     <Label x:Name="RightPath_Label"/>
+                    
                 </StackPanel>
 
 
                 <!-- ListView of Current Directory Information -->
-                <ListView x:Name="RightList_ListView" SizeChanged="RightListView_SizeChanged">
+                <ListView x:Name="RightList_ListView" SizeChanged="rightListView_SizeChanged">
 
 
                     <ListView.View>

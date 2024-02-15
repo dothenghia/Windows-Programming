@@ -35,6 +35,8 @@ namespace Week3
             this.Date = Date;
         }
     }
+
+    
     public partial class MainWindow : Window
     {
         private DriveInfo[] allDrives;

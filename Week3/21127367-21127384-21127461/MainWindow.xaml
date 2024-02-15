@@ -8,10 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <DockPanel LastChildFill="True">
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-            <ComboBox x:Name="DiskComboBox" HorizontalAlignment="Left" SelectionChanged="ComboBox_SelectionChanged">
- 
-             </ComboBox>
-            <Label x:Name="PathLabel"  HorizontalAlignment="Right"></Label>
+            <ComboBox x:Name="DiskComboBox" SelectionChanged="ComboBox_SelectionChanged"/>
+            <Label x:Name="PathLabel" ></Label>
         </StackPanel>
         
         <ListView x:Name="DiskView" SizeChanged="DiskViewColumnChange">

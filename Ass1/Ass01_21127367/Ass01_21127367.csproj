@@ -14,6 +14,7 @@
     <None Remove="images\delete.png" />
     <None Remove="images\forward.png" />
     <None Remove="images\move.png" />
+    <None Remove="images\paste.png" />
     <None Remove="images\resize.png" />
     <None Remove="images\up.png" />
   </ItemGroup>
@@ -32,6 +33,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\move.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\paste.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\resize.png">

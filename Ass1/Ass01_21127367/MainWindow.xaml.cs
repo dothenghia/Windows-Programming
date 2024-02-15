@@ -12,6 +12,13 @@ using System.Diagnostics; // To use Debug.WriteLine
 using System.IO;
 using System;
 
+/* Note:
+ * - Tên Element Tag : <TênChứcNăng>_<TênElement>
+ * - Tên Event Handler : <TênVịTríElement>_<TênEvent>
+ * - Private: camelCase
+ * - Public: PascalCase
+*/
+
 namespace Ass01_21127367
 {
     // =============== DEFINE CLASS OF FILE INFORMATION ===============
@@ -22,7 +29,7 @@ namespace Ass01_21127367
         public string Size { get; set; }
         public string Date { get; set; }
 
-        public MyFileInfo(String Name, String Type, String Size, String Date) {
+        public MyFileInfo(string Name, string Type, string Size, string Date) {
             this.Name = Name;
             this.Type = Type;
             this.Size = Size;
@@ -30,12 +37,13 @@ namespace Ass01_21127367
         }
     }
 
+
     // =============== MainWindow CODE ===============
     public partial class MainWindow : Window
     {
         private DriveInfo[] allDrives = DriveInfo.GetDrives();
-        private String leftPath = "";
-        private String rightPath = "";
+        private string leftPath = "";
+        private string rightPath = "";
 
         // Initialization
         public MainWindow()
@@ -48,49 +56,52 @@ namespace Ass01_21127367
             }
         }
 
-        // Responsive size for Grid Column of LEFT & RIGHT WINDOW
-        private void LeftListView_SizeChanged(object sender, SizeChangedEventArgs e)
+
+        // Responsive size of Grid Columns of LEFT & RIGHT WINDOW
+        private void leftListView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (LeftList_ListView.View != null && LeftList_ListView.View is GridView grid) {
-                grid.Columns[0].Width = LeftWindow_DockPanel.ActualWidth / 4;
-                grid.Columns[1].Width = LeftWindow_DockPanel.ActualWidth / 4;
-                grid.Columns[2].Width = LeftWindow_DockPanel.ActualWidth / 4;
-                grid.Columns[3].Width = LeftWindow_DockPanel.ActualWidth / 4;
+                grid.Columns[0].Width = LeftWindow_DockPanel.ActualWidth * 4/11;
+                grid.Columns[1].Width = LeftWindow_DockPanel.ActualWidth * 2/11;
+                grid.Columns[2].Width = LeftWindow_DockPanel.ActualWidth * 2/11;
+                grid.Columns[3].Width = LeftWindow_DockPanel.ActualWidth * 3/11;
             }
             if (ToolBar_Border != null) {
                 ToolBar_Border.Width = LeftWindow_DockPanel.ActualWidth + RightWindow_DockPanel.ActualWidth;
             }
         }
-        private void RightListView_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void rightListView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (RightList_ListView.View != null && RightList_ListView.View is GridView grid) {
-                grid.Columns[0].Width = RightWindow_DockPanel.ActualWidth / 4;
-                grid.Columns[1].Width = RightWindow_DockPanel.ActualWidth / 4;
-                grid.Columns[2].Width = RightWindow_DockPanel.ActualWidth / 4;
-                grid.Columns[3].Width = RightWindow_DockPanel.ActualWidth / 4;
+                grid.Columns[0].Width = RightWindow_DockPanel.ActualWidth * 4/11;
+                grid.Columns[1].Width = RightWindow_DockPanel.ActualWidth * 2/11;
+                grid.Columns[2].Width = RightWindow_DockPanel.ActualWidth * 2/11;
+                grid.Columns[3].Width = RightWindow_DockPanel.ActualWidth * 3/11;
             }
             if (ToolBar_Border != null) {
                 ToolBar_Border.Width = LeftWindow_DockPanel.ActualWidth + RightWindow_DockPanel.ActualWidth;
             }
         }
 
+
         // Selection Handler of LEFT & RIGHT ComboBox
-        private void LeftComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void leftComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox DiskComboBox = (ComboBox)sender;
             LeftPath_Label.Content = DiskComboBox.SelectedItem as string;
             leftPath = DiskComboBox.SelectedItem as string;
-            ShowDiskView(leftPath, LeftList_ListView);
+            showDiskView(leftPath, LeftList_ListView);
         }
-        private void RightComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void rightComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox DiskComboBox = (ComboBox)sender;
             RightPath_Label.Content = DiskComboBox.SelectedItem as string;
             rightPath = DiskComboBox.SelectedItem as string;
-            ShowDiskView(rightPath, RightList_ListView);
+            showDiskView(rightPath, RightList_ListView);
         }
 
-        private void ShowDiskView(string path, ListView lv)
+
+        private void showDiskView(string path, ListView lv)
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(@"" + path);
             DirectoryInfo[] subDirectoryInfos = directoryInfo.GetDirectories();
