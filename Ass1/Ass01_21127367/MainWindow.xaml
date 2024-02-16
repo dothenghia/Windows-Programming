@@ -71,13 +71,6 @@
                             <TextBlock TextAlignment="Center" FontSize="13.2" Margin="0,-6,0,0">View</TextBlock>
                         </StackPanel>
                     </Button>
-                    <!-- Paste button -->
-                    <Button x:Name="Paste_Button" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Margin="8,0,8,0">
-                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
-                            <Image Source="images/paste.png" Margin="6,0,6,0"/>
-                            <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Paste</TextBlock>
-                        </StackPanel>
-                    </Button>
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -98,7 +91,13 @@
             <GridSplitter Grid.Column="1" Grid.RowSpan="1" HorizontalAlignment="Stretch"></GridSplitter>
 
             <!-- =============== LEFT WINDOW =============== -->
-            <DockPanel x:Name="LeftWindow_DockPanel" Grid.Row="0" Grid.Column="0" LastChildFill="True">
+            <DockPanel
+                x:Name="LeftWindow_DockPanel"
+                GotFocus="leftWindow_GotFocus"
+                Grid.Row="0"
+                Grid.Column="0"
+                LastChildFill="True"
+                >
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                     
                     <!-- ComboBox of Hard Drives + Label of Current Directory -->
@@ -110,8 +109,12 @@
                 
                 <!-- ListView of Current Directory Information -->
                 <ListView x:Name="LeftList_ListView" SizeChanged="leftListView_SizeChanged">
-                    
-                    
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <EventSetter Event="MouseDoubleClick" Handler="showItemInformation_DBClick"/>
+                        </Style>
+                    </ListView.Resources>
+
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
@@ -126,7 +129,13 @@
 
             
             <!-- =============== RIGHT WINDOW =============== -->
-            <DockPanel x:Name="RightWindow_DockPanel" Grid.Row="0" Grid.Column="2" LastChildFill="True">
+            <DockPanel 
+                x:Name="RightWindow_DockPanel"
+                GotFocus="rightWindow_GotFocus"
+                Grid.Row="0"
+                Grid.Column="2"
+                LastChildFill="True"
+                >
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
 
                     <!-- ComboBox of Hard Drives + Label of Current Directory -->
@@ -138,7 +147,11 @@
 
                 <!-- ListView of Current Directory Information -->
                 <ListView x:Name="RightList_ListView" SizeChanged="rightListView_SizeChanged">
-
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <EventSetter Event="MouseDoubleClick" Handler="showItemInformation_DBClick"/>
+                        </Style>
+                    </ListView.Resources>
 
                     <ListView.View>
                         <GridView>

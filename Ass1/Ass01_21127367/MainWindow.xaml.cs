@@ -41,11 +41,14 @@ namespace Ass01_21127367
     // =============== MainWindow CODE ===============
     public partial class MainWindow : Window
     {
+        // =============== Initialization
         private DriveInfo[] allDrives = DriveInfo.GetDrives();
         private string leftPath = "";
         private string rightPath = "";
 
-        // =============== Initialization
+        private bool isLeftWindowFocused = false;
+        private bool isRightWindowFocused = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -114,20 +117,20 @@ namespace Ass01_21127367
         // =============== Show Directory Information
         private void showDirectoryInformation(string path, ListView lv)
         {
-            DirectoryInfo directoryInfo = new DirectoryInfo(@"" + path);
-            DirectoryInfo[] subDirectoryInfos = directoryInfo.GetDirectories();
-            FileInfo[] files = directoryInfo.GetFiles();
+            DirectoryInfo directoryInformation = new DirectoryInfo(@"" + path);
+            DirectoryInfo[] subDirectoryList = directoryInformation.GetDirectories();
+            FileInfo[] fileList = directoryInformation.GetFiles();
 
-            List<MyFileInfo> item = new List<MyFileInfo>();
-            foreach (DirectoryInfo info in subDirectoryInfos)
+            List<MyFileInfo> listViewItems = new List<MyFileInfo>();
+            foreach (DirectoryInfo subDirectory in subDirectoryList)
             {
-                item.Add(new MyFileInfo(info.Name, "Folder", "", info.CreationTime.ToString()));
+                listViewItems.Add(new MyFileInfo(subDirectory.Name, "Folder", "", subDirectory.CreationTime.ToString()));
             }
-            foreach (FileInfo file in files)
+            foreach (FileInfo file in fileList)
             {
-                item.Add(new MyFileInfo(file.Name, file.Extension, convertSize(file.Length), file.CreationTime.ToString()));
+                listViewItems.Add(new MyFileInfo(file.Name, file.Extension, convertSize(file.Length), file.CreationTime.ToString()));
             }
-            lv.ItemsSource = item;
+            lv.ItemsSource = listViewItems;
         }
 
         // Convert size of file into Unit ngắn gọn
@@ -147,6 +150,19 @@ namespace Ass01_21127367
         }
 
 
+        // =============== Get Focused Window
+        private void leftWindow_GotFocus(object sender, EventArgs e) {
+            isLeftWindowFocused = true;
+            isRightWindowFocused = false;
+            Debug.WriteLine("Left - Focus");
+        }
+        private void rightWindow_GotFocus(object sender, EventArgs e) {
+            isLeftWindowFocused = false;
+            isRightWindowFocused = true;
+            Debug.WriteLine("Right - Focus");
+        }
+
+
         // =============== CLICK HANDLERS ===============
         // Resize Button - Click Handler
         private void Resize_Click(object sender, EventArgs e)
@@ -155,6 +171,19 @@ namespace Ass01_21127367
             TwoWindows_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
         }
 
+        // List View Item - DoubleClick Handler
+        private void showItemInformation_DBClick(object sender, EventArgs e)
+        {
+            //MyFileInfo selectedItem = 
+            if (isLeftWindowFocused)
+            {
+                Debug.WriteLine("Left - DBClick");
+            }
+            if (isRightWindowFocused)
+            {
+                Debug.WriteLine("Right - DBClick");
+            }
+        }
 
 
 
