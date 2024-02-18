@@ -62,7 +62,6 @@ namespace Week3
             ShowDiskView(path);
         }
 
-        
         private void ShowDiskView(string path)
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(@""+path);

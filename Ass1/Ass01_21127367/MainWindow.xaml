@@ -108,10 +108,10 @@
 
                 
                 <!-- ListView of Current Directory Information -->
-                <ListView x:Name="LeftList_ListView" SizeChanged="leftListView_SizeChanged">
+                <ListView x:Name="LeftList_ListView" SizeChanged="leftListView_SizeChanged" PreviewKeyDown="ShowItemInformation_PreviewKeyDown">
                     <ListView.Resources>
                         <Style TargetType="{x:Type ListViewItem}">
-                            <EventSetter Event="MouseDoubleClick" Handler="showItemInformation_DBClick"/>
+                            <EventSetter Event="MouseDoubleClick" Handler="ShowItemInformation_DBClick"/>
                         </Style>
                     </ListView.Resources>
 
@@ -146,10 +146,10 @@
 
 
                 <!-- ListView of Current Directory Information -->
-                <ListView x:Name="RightList_ListView" SizeChanged="rightListView_SizeChanged">
+                <ListView x:Name="RightList_ListView" SizeChanged="rightListView_SizeChanged" PreviewKeyDown="ShowItemInformation_PreviewKeyDown">
                     <ListView.Resources>
                         <Style TargetType="{x:Type ListViewItem}">
-                            <EventSetter Event="MouseDoubleClick" Handler="showItemInformation_DBClick"/>
+                            <EventSetter Event="MouseDoubleClick" Handler="ShowItemInformation_DBClick"/>
                         </Style>
                     </ListView.Resources>
 

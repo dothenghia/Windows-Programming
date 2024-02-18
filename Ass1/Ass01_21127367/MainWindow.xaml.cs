@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics; // To use Debug.WriteLine
 using System.IO;
-using System;
 
 /* Note:
  * - Tên Element Tag : <TênChứcNăng>_<TênElement>
@@ -136,7 +139,7 @@ namespace Ass01_21127367
         // Convert size of file into Unit ngắn gọn
         private string convertSize(long size)
         {
-            string[] suffixes = { "B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+            string[] suffixes = { "B", "KB", "MB", "GB", "TB", "PB" };
             int suffixIndex = 0;
 
             double doubleSize = size;
@@ -172,20 +175,98 @@ namespace Ass01_21127367
         }
 
         // List View Item - DoubleClick Handler
-        private void showItemInformation_DBClick(object sender, EventArgs e)
+        private void ShowItemInformation_DBClick(object sender, EventArgs e)
         {
-            //MyFileInfo selectedItem = 
-            if (isLeftWindowFocused)
-            {
-                Debug.WriteLine("Left - DBClick");
+            if (isLeftWindowFocused) {
+                MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null && selectedItem.Type == "Folder") {
+                    LeftPath_Label.Content += selectedItem.Name + @"\";
+                    leftPath += selectedItem.Name + @"\";
+                    showDirectoryInformation(leftPath, LeftList_ListView);
+                }
+                else if (selectedItem != null)
+                {
+                    string filePath = LeftPath_Label.Content + selectedItem.Name;
+                    Debug.WriteLine(filePath);
+                    ProcessStartInfo processStartInfo = new ProcessStartInfo
+                    {
+                        FileName = filePath,
+                        UseShellExecute = true,
+                    };
+                    Process.Start(processStartInfo);
+                }
             }
-            if (isRightWindowFocused)
+            else if (isRightWindowFocused)
             {
-                Debug.WriteLine("Right - DBClick");
+                MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null && selectedItem.Type == "Folder")
+                {
+                    RightPath_Label.Content += selectedItem.Name + @"\";
+                    rightPath += selectedItem.Name + @"\";
+                    showDirectoryInformation(rightPath, RightList_ListView);
+                }
+                else if (selectedItem != null)
+                {
+                    string filePath = RightPath_Label.Content + selectedItem.Name;
+                    Debug.WriteLine(filePath);
+                    ProcessStartInfo processStartInfo = new ProcessStartInfo
+                    {
+                        FileName = filePath,
+                        UseShellExecute = true,
+                    };
+                    Process.Start(processStartInfo);
+                }
             }
         }
-
-
+        // List View Item - Click Handler + Enter
+        private void ShowItemInformation_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (isLeftWindowFocused)
+                {
+                    MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
+                    if (selectedItem != null && selectedItem.Type == "Folder")
+                    {
+                        LeftPath_Label.Content += selectedItem.Name + @"\";
+                        leftPath += selectedItem.Name + @"\";
+                        showDirectoryInformation(leftPath, LeftList_ListView);
+                    }
+                    else if (selectedItem != null)
+                    {
+                        string filePath = LeftPath_Label.Content + selectedItem.Name;
+                        Debug.WriteLine(filePath);
+                        ProcessStartInfo processStartInfo = new ProcessStartInfo
+                        {
+                            FileName = filePath,
+                            UseShellExecute = true,
+                        };
+                        Process.Start(processStartInfo);
+                    }
+                }
+                else if (isRightWindowFocused)
+                {
+                    MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
+                    if (selectedItem != null && selectedItem.Type == "Folder")
+                    {
+                        RightPath_Label.Content += selectedItem.Name + @"\";
+                        rightPath += selectedItem.Name + @"\";
+                        showDirectoryInformation(rightPath, RightList_ListView);
+                    }
+                    else if (selectedItem != null)
+                    {
+                        string filePath = RightPath_Label.Content + selectedItem.Name;
+                        Debug.WriteLine(filePath);
+                        ProcessStartInfo processStartInfo = new ProcessStartInfo
+                        {
+                            FileName = filePath,
+                            UseShellExecute = true,
+                        };
+                        Process.Start(processStartInfo);
+                    }
+                }
+            }
+        }
 
     }
 }
