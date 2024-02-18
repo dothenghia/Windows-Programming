@@ -30,7 +30,7 @@
                         </StackPanel>
                     </Button>
                     <!-- Up button -->
-                    <Button x:Name="Up_Button" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
+                    <Button x:Name="Up_Button" Click="UpButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
                         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
                             <Image Source="images/up.png" Margin="6,0,6,0"/>
                             <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Up</TextBlock>

@@ -57,6 +57,7 @@ namespace Ass01_21127367
             InitializeComponent();
 
             foreach (DriveInfo drive in allDrives) {
+                Debug.WriteLine(drive.Name);
                 LeftDrives_ComboBox.Items.Add(drive.Name);
                 RightDrives_ComboBox.Items.Add(drive.Name);
             }
@@ -180,13 +181,18 @@ namespace Ass01_21127367
             if (isLeftWindowFocused) {
                 MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
                 if (selectedItem != null && selectedItem.Type == "Folder") {
-                    LeftPath_Label.Content += selectedItem.Name + @"\";
-                    leftPath += selectedItem.Name + @"\";
+                    if (!leftPath.EndsWith("\\"))
+                    {
+                        leftPath += "\\";
+                        LeftPath_Label.Content += "\\";
+                    }
+                    LeftPath_Label.Content += selectedItem.Name;
+                    leftPath += selectedItem.Name;
                     showDirectoryInformation(leftPath, LeftList_ListView);
                 }
                 else if (selectedItem != null)
                 {
-                    string filePath = LeftPath_Label.Content + selectedItem.Name;
+                    string filePath = LeftPath_Label.Content + "\\" + selectedItem.Name;
                     Debug.WriteLine(filePath);
                     ProcessStartInfo processStartInfo = new ProcessStartInfo
                     {
@@ -201,13 +207,18 @@ namespace Ass01_21127367
                 MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
                 if (selectedItem != null && selectedItem.Type == "Folder")
                 {
-                    RightPath_Label.Content += selectedItem.Name + @"\";
-                    rightPath += selectedItem.Name + @"\";
+                    if (!rightPath.EndsWith("\\"))
+                    {
+                        rightPath += "\\";
+                        RightPath_Label.Content += "\\";
+                    }
+                    RightPath_Label.Content += selectedItem.Name;
+                    rightPath += selectedItem.Name;
                     showDirectoryInformation(rightPath, RightList_ListView);
                 }
                 else if (selectedItem != null)
                 {
-                    string filePath = RightPath_Label.Content + selectedItem.Name;
+                    string filePath = RightPath_Label.Content + "\\" + selectedItem.Name;
                     Debug.WriteLine(filePath);
                     ProcessStartInfo processStartInfo = new ProcessStartInfo
                     {
@@ -268,6 +279,35 @@ namespace Ass01_21127367
             }
         }
 
+        // Up Button - Click Handler
+        private void UpButton_Click(object sender, EventArgs e)
+        {
+            string currentPath;
+            if (isLeftWindowFocused)
+                currentPath = leftPath;
+            else if (isRightWindowFocused)
+                currentPath = rightPath;
+            else
+                return; // if no window got focus
+
+            if (Directory.GetParent(currentPath) != null)
+            {
+                string parentDirectory = Directory.GetParent(currentPath).FullName;
+
+                if (isLeftWindowFocused)
+                {
+                    LeftPath_Label.Content = parentDirectory;
+                    leftPath = parentDirectory;
+                    showDirectoryInformation(parentDirectory, LeftList_ListView);
+                }
+                else if (isRightWindowFocused)
+                {
+                    RightPath_Label.Content = parentDirectory;
+                    rightPath = parentDirectory;
+                    showDirectoryInformation(parentDirectory, RightList_ListView);
+                }
+            }
+        }
     }
 }
 
