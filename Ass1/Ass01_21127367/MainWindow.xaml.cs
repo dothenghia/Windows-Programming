@@ -49,6 +49,9 @@ namespace Ass01_21127367
         private string leftPath = "";
         private string rightPath = "";
 
+        private Stack<string> leftStack = new Stack<string>();
+        private Stack<string> rightStack = new Stack<string>();
+
         private bool isLeftWindowFocused = false;
         private bool isRightWindowFocused = false;
 
@@ -169,7 +172,7 @@ namespace Ass01_21127367
 
         // =============== CLICK HANDLERS ===============
         // Resize Button - Click Handler
-        private void Resize_Click(object sender, EventArgs e)
+        private void ResizeButton_Click(object sender, EventArgs e)
         {
             TwoWindows_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
             TwoWindows_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
@@ -181,6 +184,8 @@ namespace Ass01_21127367
             if (isLeftWindowFocused) {
                 MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
                 if (selectedItem != null && selectedItem.Type == "Folder") {
+                    leftStack.Push(leftPath);
+
                     if (!leftPath.EndsWith("\\"))
                     {
                         leftPath += "\\";
@@ -205,8 +210,9 @@ namespace Ass01_21127367
             else if (isRightWindowFocused)
             {
                 MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
-                if (selectedItem != null && selectedItem.Type == "Folder")
-                {
+                if (selectedItem != null && selectedItem.Type == "Folder") {
+                    rightStack.Push(rightPath);
+
                     if (!rightPath.EndsWith("\\"))
                     {
                         rightPath += "\\";
@@ -234,48 +240,59 @@ namespace Ass01_21127367
         {
             if (e.Key == Key.Enter)
             {
-                if (isLeftWindowFocused)
-                {
-                    MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
-                    if (selectedItem != null && selectedItem.Type == "Folder")
-                    {
-                        LeftPath_Label.Content += selectedItem.Name + @"\";
-                        leftPath += selectedItem.Name + @"\";
-                        showDirectoryInformation(leftPath, LeftList_ListView);
-                    }
-                    else if (selectedItem != null)
-                    {
-                        string filePath = LeftPath_Label.Content + selectedItem.Name;
-                        Debug.WriteLine(filePath);
-                        ProcessStartInfo processStartInfo = new ProcessStartInfo
+                if (isLeftWindowFocused) {
+                MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null && selectedItem.Type == "Folder") {
+                    leftStack.Push(leftPath);
+
+                    if (!leftPath.EndsWith("\\"))
                         {
-                            FileName = filePath,
-                            UseShellExecute = true,
-                        };
-                        Process.Start(processStartInfo);
+                        leftPath += "\\";
+                        LeftPath_Label.Content += "\\";
                     }
+                    LeftPath_Label.Content += selectedItem.Name;
+                    leftPath += selectedItem.Name;
+                    showDirectoryInformation(leftPath, LeftList_ListView);
                 }
-                else if (isRightWindowFocused)
+                else if (selectedItem != null)
                 {
-                    MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
-                    if (selectedItem != null && selectedItem.Type == "Folder")
+                    string filePath = LeftPath_Label.Content + "\\" + selectedItem.Name;
+                    Debug.WriteLine(filePath);
+                    ProcessStartInfo processStartInfo = new ProcessStartInfo
                     {
-                        RightPath_Label.Content += selectedItem.Name + @"\";
-                        rightPath += selectedItem.Name + @"\";
-                        showDirectoryInformation(rightPath, RightList_ListView);
-                    }
-                    else if (selectedItem != null)
-                    {
-                        string filePath = RightPath_Label.Content + selectedItem.Name;
-                        Debug.WriteLine(filePath);
-                        ProcessStartInfo processStartInfo = new ProcessStartInfo
-                        {
-                            FileName = filePath,
-                            UseShellExecute = true,
-                        };
-                        Process.Start(processStartInfo);
-                    }
+                        FileName = filePath,
+                        UseShellExecute = true,
+                    };
+                    Process.Start(processStartInfo);
                 }
+            }
+            else if (isRightWindowFocused)
+            {
+                MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null && selectedItem.Type == "Folder") {
+                    rightStack.Push(rightPath);
+
+                    if (!rightPath.EndsWith("\\"))
+                        {
+                        rightPath += "\\";
+                        RightPath_Label.Content += "\\";
+                    }
+                    RightPath_Label.Content += selectedItem.Name;
+                    rightPath += selectedItem.Name;
+                    showDirectoryInformation(rightPath, RightList_ListView);
+                }
+                else if (selectedItem != null)
+                {
+                    string filePath = RightPath_Label.Content + "\\" + selectedItem.Name;
+                    Debug.WriteLine(filePath);
+                    ProcessStartInfo processStartInfo = new ProcessStartInfo
+                    {
+                        FileName = filePath,
+                        UseShellExecute = true,
+                    };
+                    Process.Start(processStartInfo);
+                }
+            }
             }
         }
 
@@ -296,18 +313,51 @@ namespace Ass01_21127367
 
                 if (isLeftWindowFocused)
                 {
+                    leftStack.Push(leftPath);
                     LeftPath_Label.Content = parentDirectory;
                     leftPath = parentDirectory;
                     showDirectoryInformation(parentDirectory, LeftList_ListView);
                 }
                 else if (isRightWindowFocused)
                 {
+                    rightStack.Push(rightPath);
                     RightPath_Label.Content = parentDirectory;
                     rightPath = parentDirectory;
                     showDirectoryInformation(parentDirectory, RightList_ListView);
                 }
             }
         }
+    
+        // Back Button - Click Handler
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            if (isLeftWindowFocused)
+            {
+                if (leftStack.Count > 0)
+                {
+                    string previousDirectory = leftStack.Pop();
+                    Debug.WriteLine(previousDirectory);
+                    LeftPath_Label.Content = previousDirectory;
+                    leftPath = previousDirectory;
+                    showDirectoryInformation(previousDirectory, LeftList_ListView);
+                }
+            }
+            else if (isRightWindowFocused)
+            {
+                if (rightStack.Count > 0)
+                {
+                    string previousDirectory = rightStack.Pop();
+                    Debug.WriteLine(previousDirectory);
+                    RightPath_Label.Content = previousDirectory;
+                    rightPath = previousDirectory;
+                    showDirectoryInformation(previousDirectory, RightList_ListView);
+                }
+            }
+        }
+
+
+
+
     }
 }
 
