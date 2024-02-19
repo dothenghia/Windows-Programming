@@ -40,7 +40,7 @@
                     <StackPanel Width="2" Background="#FFC3C3C3" Margin="10,6,10,6"></StackPanel>
 
                     <!-- Copy button -->
-                    <Button x:Name="Copy_Button" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
+                    <Button x:Name="Copy_Button" Click="CopyButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
                         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
                             <Image Source="images/copy.png" Margin="6,0,6,0"/>
                             <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Copy</TextBlock>

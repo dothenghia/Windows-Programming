@@ -395,6 +395,101 @@ namespace Ass01_21127367
             }
         }
 
+        // Copy Button - Click Handler
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            if (isLeftWindowFocused)
+            {
+                MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null)
+                {
+                    string sourcePath = System.IO.Path.Combine(LeftPath_Label.Content.ToString(), selectedItem.Name);
+                    string destinationPath = System.IO.Path.Combine(RightPath_Label.Content.ToString(), selectedItem.Name);
+
+                    if (File.Exists(sourcePath)) // FILE
+                    {
+                        try
+                        {
+                            File.Copy(sourcePath, destinationPath, true); // Overwrite if it exists
+                            showDirectoryInformation(rightPath, RightList_ListView);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error copying file: {ex.Message}");
+                        }
+                    }
+                    else if (Directory.Exists(sourcePath)) // FOLDER
+                    {
+                        try
+                        {
+                            CopyDirectory(sourcePath, destinationPath);
+                            showDirectoryInformation(rightPath, RightList_ListView);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error copying directory: {ex.Message}");
+                        }
+                    }
+                }
+            }
+            else if (isRightWindowFocused)
+            {
+                MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null)
+                {
+                    string sourcePath = System.IO.Path.Combine(RightPath_Label.Content.ToString(), selectedItem.Name);
+                    string destinationPath = System.IO.Path.Combine(LeftPath_Label.Content.ToString(), selectedItem.Name);
+
+                    if (File.Exists(sourcePath))
+                    {
+                        try
+                        {
+                            File.Copy(sourcePath, destinationPath, true);
+                            showDirectoryInformation(leftPath, LeftList_ListView);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error copying file: {ex.Message}");
+                        }
+                    }
+                    else if (Directory.Exists(sourcePath))
+                    {
+                        try
+                        {
+                            CopyDirectory(sourcePath, destinationPath);
+                            showDirectoryInformation(leftPath, LeftList_ListView);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error copying directory: {ex.Message}");
+                        }
+                    }
+                }
+            }
+        }
+
+
+        // Copy Directory
+        private void CopyDirectory(string sourceDir, string targetDir)
+        {
+            Directory.CreateDirectory(targetDir); // Create folder if it doesnt exists
+
+            foreach (string file in Directory.GetFiles(sourceDir))
+            {
+                string fileName = System.IO.Path.GetFileName(file);
+                string destFile = System.IO.Path.Combine(targetDir, fileName);
+                File.Copy(file, destFile, true);
+            }
+
+            foreach (string subDir in Directory.GetDirectories(sourceDir))
+            {
+                string dirName = System.IO.Path.GetFileName(subDir);
+                string destDir = System.IO.Path.Combine(targetDir, dirName);
+                CopyDirectory(subDir, destDir);
+            }
+        }
+
+
 
     }
 }
