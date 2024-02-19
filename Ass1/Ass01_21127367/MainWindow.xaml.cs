@@ -416,6 +416,7 @@ namespace Ass01_21127367
                         catch (Exception ex)
                         {
                             Debug.WriteLine($"Error copying file: {ex.Message}");
+                            MessageBox.Show($"Error copying file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     else if (Directory.Exists(sourcePath)) // FOLDER
@@ -428,6 +429,7 @@ namespace Ass01_21127367
                         catch (Exception ex)
                         {
                             Debug.WriteLine($"Error copying directory: {ex.Message}");
+                            MessageBox.Show($"Error copying directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 }
@@ -450,6 +452,7 @@ namespace Ass01_21127367
                         catch (Exception ex)
                         {
                             Debug.WriteLine($"Error copying file: {ex.Message}");
+                            MessageBox.Show($"Error copying file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     else if (Directory.Exists(sourcePath))
@@ -462,6 +465,7 @@ namespace Ass01_21127367
                         catch (Exception ex)
                         {
                             Debug.WriteLine($"Error copying directory: {ex.Message}");
+                            MessageBox.Show($"Error copying directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 }
@@ -513,13 +517,14 @@ namespace Ass01_21127367
                         catch (Exception ex)
                         {
                             Debug.WriteLine($"Error moving file: {ex.Message}");
+                            MessageBox.Show($"Error moving file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     else if (Directory.Exists(sourcePath))
                     {
                         try
                         {
-                            Directory.Move(sourcePath, destinationPath);
+                            CopyDirectory(sourcePath, destinationPath); // Copy folder recursively
                             Directory.Delete(sourcePath, true);
                             showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
                             showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
@@ -527,6 +532,7 @@ namespace Ass01_21127367
                         catch (Exception ex)
                         {
                             Debug.WriteLine($"Error moving directory: {ex.Message}");
+                            MessageBox.Show($"Error moving directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 }
@@ -551,13 +557,14 @@ namespace Ass01_21127367
                         catch (Exception ex)
                         {
                             Debug.WriteLine($"Error moving file: {ex.Message}");
+                            MessageBox.Show($"Error moving file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     else if (Directory.Exists(sourcePath))
                     {
                         try
                         {
-                            Directory.Move(sourcePath, destinationPath);
+                            CopyDirectory(sourcePath, destinationPath); // Copy folder recursively
                             Directory.Delete(sourcePath, true);
                             showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
                             showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
@@ -565,11 +572,73 @@ namespace Ass01_21127367
                         catch (Exception ex)
                         {
                             Debug.WriteLine($"Error moving directory: {ex.Message}");
+                            MessageBox.Show($"Error moving directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 }
             }
         }
+
+
+        // Delete Button - Click Handler
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (isLeftWindowFocused)
+            {
+                MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null)
+                {
+                    string filePath = System.IO.Path.Combine(LeftPath_Label.Content.ToString(), selectedItem.Name);
+
+                    if (filePath == rightPath)
+                    {
+                        MessageBox.Show("Cannot delete the folder currently opened in the other window.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+
+                    DeleteFileOrDirectory(filePath);
+                    showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                }
+            }
+            else if (isRightWindowFocused)
+            {
+                MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null)
+                {
+                    string filePath = System.IO.Path.Combine(RightPath_Label.Content.ToString(), selectedItem.Name);
+
+                    if (filePath == leftPath)
+                    {
+                        MessageBox.Show("Cannot delete the folder currently opened in the other window.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+
+                    DeleteFileOrDirectory(filePath);
+                    showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                }
+            }
+        }
+
+        private void DeleteFileOrDirectory(string path)
+        {
+            try
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+                else if (Directory.Exists(path))
+                {
+                    Directory.Delete(path, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error deleting file or directory: {ex.Message}");
+                MessageBox.Show($"Error deleting file or directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
 
     }
 }
