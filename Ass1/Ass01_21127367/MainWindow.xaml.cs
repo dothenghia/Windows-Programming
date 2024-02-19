@@ -49,8 +49,11 @@ namespace Ass01_21127367
         private string leftPath = "";
         private string rightPath = "";
 
-        private Stack<string> leftStack = new Stack<string>();
+        private Stack<string> leftStack = new Stack<string>(); // Back Stacks
         private Stack<string> rightStack = new Stack<string>();
+
+        private Stack<string> leftForwardStack = new Stack<string>(); // Forward Stacks
+        private Stack<string> rightForwardStack = new Stack<string>();
 
         private bool isLeftWindowFocused = false;
         private bool isRightWindowFocused = false;
@@ -185,6 +188,7 @@ namespace Ass01_21127367
                 MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
                 if (selectedItem != null && selectedItem.Type == "Folder") {
                     leftStack.Push(leftPath);
+                    leftForwardStack.Clear();
 
                     if (!leftPath.EndsWith("\\"))
                     {
@@ -212,6 +216,7 @@ namespace Ass01_21127367
                 MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
                 if (selectedItem != null && selectedItem.Type == "Folder") {
                     rightStack.Push(rightPath);
+                    rightForwardStack.Clear();
 
                     if (!rightPath.EndsWith("\\"))
                     {
@@ -244,6 +249,7 @@ namespace Ass01_21127367
                 MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
                 if (selectedItem != null && selectedItem.Type == "Folder") {
                     leftStack.Push(leftPath);
+                    leftForwardStack.Clear();
 
                     if (!leftPath.EndsWith("\\"))
                         {
@@ -271,6 +277,7 @@ namespace Ass01_21127367
                 MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
                 if (selectedItem != null && selectedItem.Type == "Folder") {
                     rightStack.Push(rightPath);
+                    rightForwardStack.Clear();
 
                     if (!rightPath.EndsWith("\\"))
                         {
@@ -314,6 +321,7 @@ namespace Ass01_21127367
                 if (isLeftWindowFocused)
                 {
                     leftStack.Push(leftPath);
+                    leftForwardStack.Clear();
                     LeftPath_Label.Content = parentDirectory;
                     leftPath = parentDirectory;
                     showDirectoryInformation(parentDirectory, LeftList_ListView);
@@ -321,6 +329,7 @@ namespace Ass01_21127367
                 else if (isRightWindowFocused)
                 {
                     rightStack.Push(rightPath);
+                    rightForwardStack.Clear();
                     RightPath_Label.Content = parentDirectory;
                     rightPath = parentDirectory;
                     showDirectoryInformation(parentDirectory, RightList_ListView);
@@ -337,6 +346,7 @@ namespace Ass01_21127367
                 {
                     string previousDirectory = leftStack.Pop();
                     Debug.WriteLine(previousDirectory);
+                    leftForwardStack.Push(leftPath);
                     LeftPath_Label.Content = previousDirectory;
                     leftPath = previousDirectory;
                     showDirectoryInformation(previousDirectory, LeftList_ListView);
@@ -348,6 +358,7 @@ namespace Ass01_21127367
                 {
                     string previousDirectory = rightStack.Pop();
                     Debug.WriteLine(previousDirectory);
+                    rightForwardStack.Push(rightPath);
                     RightPath_Label.Content = previousDirectory;
                     rightPath = previousDirectory;
                     showDirectoryInformation(previousDirectory, RightList_ListView);
@@ -355,7 +366,34 @@ namespace Ass01_21127367
             }
         }
 
-
+        // Forward Button - Click Handler
+        private void ForwardButton_Click(object sender, EventArgs e)
+        {
+            if (isLeftWindowFocused)
+            {
+                if (leftForwardStack.Count > 0)
+                {
+                    string nextDirectory = leftForwardStack.Pop();
+                    Debug.WriteLine(nextDirectory);
+                    leftStack.Push(leftPath);
+                    LeftPath_Label.Content = nextDirectory;
+                    leftPath = nextDirectory;
+                    showDirectoryInformation(nextDirectory, LeftList_ListView);
+                }
+            }
+            else if (isRightWindowFocused)
+            {
+                if (rightForwardStack.Count > 0)
+                {
+                    string nextDirectory = rightForwardStack.Pop();
+                    Debug.WriteLine(nextDirectory);
+                    rightStack.Push(rightPath);
+                    RightPath_Label.Content = nextDirectory;
+                    rightPath = nextDirectory;
+                    showDirectoryInformation(nextDirectory, RightList_ListView);
+                }
+            }
+        }
 
 
     }

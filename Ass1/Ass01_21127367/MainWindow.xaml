@@ -23,7 +23,7 @@
                         </StackPanel>
                     </Button>
                     <!-- Forward button -->
-                    <Button x:Name="Forward_Button" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Margin="8,0,8,0">
+                    <Button x:Name="Forward_Button" Click="ForwardButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Margin="8,0,8,0">
                         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
                             <Image Source="images/forward.png" Margin="6,0,6,0"/>
                             <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Forward</TextBlock>
