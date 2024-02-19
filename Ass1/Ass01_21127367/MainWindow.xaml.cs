@@ -410,7 +410,7 @@ namespace Ass01_21127367
                     {
                         try
                         {
-                            File.Copy(sourcePath, destinationPath, true); // Overwrite if it exists
+                            CopyFileWithUniqueName(sourcePath, destinationPath); // Copy file with unique name
                             showDirectoryInformation(rightPath, RightList_ListView);
                         }
                         catch (Exception ex)
@@ -423,7 +423,7 @@ namespace Ass01_21127367
                     {
                         try
                         {
-                            CopyDirectory(sourcePath, destinationPath);
+                            CopyDirectoryWithUniqueName(sourcePath, destinationPath); // Copy directory with unique name
                             showDirectoryInformation(rightPath, RightList_ListView);
                         }
                         catch (Exception ex)
@@ -446,7 +446,7 @@ namespace Ass01_21127367
                     {
                         try
                         {
-                            File.Copy(sourcePath, destinationPath, true);
+                            CopyFileWithUniqueName(sourcePath, destinationPath); // Copy file with unique name
                             showDirectoryInformation(leftPath, LeftList_ListView);
                         }
                         catch (Exception ex)
@@ -459,7 +459,7 @@ namespace Ass01_21127367
                     {
                         try
                         {
-                            CopyDirectory(sourcePath, destinationPath);
+                            CopyDirectoryWithUniqueName(sourcePath, destinationPath); // Copy directory with unique name
                             showDirectoryInformation(leftPath, LeftList_ListView);
                         }
                         catch (Exception ex)
@@ -472,25 +472,62 @@ namespace Ass01_21127367
             }
         }
 
+        // Copy Directory with unique name (if directory already exists in the destination)
+        private void CopyDirectoryWithUniqueName(string sourceDir, string targetDir)
+        {
+            string newTargetDir = targetDir;
+
+            int count = 1;
+            while (Directory.Exists(newTargetDir))
+            {
+                string newDirectoryName = System.IO.Path.GetFileName(targetDir) + " - Copy";
+                if (count > 1)
+                    newDirectoryName += $" ({count})";
+
+                newTargetDir = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(targetDir), newDirectoryName);
+                count++;
+            }
+
+            CopyDirectory(sourceDir, newTargetDir); // Copy directory to new target directory
+        }
 
         // Copy Directory
         private void CopyDirectory(string sourceDir, string targetDir)
         {
-            Directory.CreateDirectory(targetDir); // Create folder if it doesnt exists
+            Directory.CreateDirectory(targetDir); // Create folder if it doesn't exist
 
             foreach (string file in Directory.GetFiles(sourceDir))
             {
                 string fileName = System.IO.Path.GetFileName(file);
                 string destFile = System.IO.Path.Combine(targetDir, fileName);
-                File.Copy(file, destFile, true);
+                CopyFileWithUniqueName(file, destFile); // Use unique name function for files
             }
 
             foreach (string subDir in Directory.GetDirectories(sourceDir))
             {
                 string dirName = System.IO.Path.GetFileName(subDir);
                 string destDir = System.IO.Path.Combine(targetDir, dirName);
-                CopyDirectory(subDir, destDir);
+                CopyDirectory(subDir, destDir); // Recursively copy subdirectories
             }
+        }
+
+        // Copy file with a unique name (if file already exists in the destination)
+        private void CopyFileWithUniqueName(string sourcePath, string destinationPath)
+        {
+            string destinationFile = destinationPath;
+
+            int count = 1;
+            while (File.Exists(destinationFile))
+            {
+                string fileNameWithoutExtension = System.IO.Path.GetFileNameWithoutExtension(destinationPath);
+                string fileExtension = System.IO.Path.GetExtension(destinationPath);
+                string newFileName = $"{fileNameWithoutExtension} - Copy ({count}){fileExtension}";
+
+                destinationFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(destinationPath), newFileName);
+                count++;
+            }
+
+            File.Copy(sourcePath, destinationFile, true);
         }
 
 
@@ -507,32 +544,77 @@ namespace Ass01_21127367
 
                     if (File.Exists(sourcePath))
                     {
-                        try
+                        if (File.Exists(destinationPath))
                         {
-                            File.Move(sourcePath, destinationPath);
-                            File.Delete(sourcePath);
-                            showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
-                            showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                            // File exists at destination, ask for confirmation to replace
+                            MessageBoxResult result = MessageBox.Show("A file with the same name already exists in the destination folder. Do you want to replace it?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                try
+                                {
+                                    File.Delete(destinationPath); // Delete existing file at destination
+                                    File.Move(sourcePath, destinationPath); // Move file from source to destination
+                                    showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                                    showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine($"Error moving file: {ex.Message}");
+                                    MessageBox.Show($"Error moving file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                            }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            Debug.WriteLine($"Error moving file: {ex.Message}");
-                            MessageBox.Show($"Error moving file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            try
+                            {
+                                File.Move(sourcePath, destinationPath); // Move file from source to destination
+                                showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                                showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine($"Error moving file: {ex.Message}");
+                                MessageBox.Show($"Error moving file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                     }
                     else if (Directory.Exists(sourcePath))
                     {
-                        try
+                        if (Directory.Exists(destinationPath))
                         {
-                            CopyDirectory(sourcePath, destinationPath); // Copy folder recursively
-                            Directory.Delete(sourcePath, true);
-                            showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
-                            showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                            // Directory exists at destination, ask for confirmation to replace
+                            MessageBoxResult result = MessageBox.Show("A folder with the same name already exists in the destination folder. Do you want to replace it?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                try
+                                {
+                                    Directory.Delete(destinationPath, true); // Delete existing directory at destination
+                                    CopyDirectory(sourcePath, destinationPath); // Copy folder recursively
+                                    Directory.Delete(sourcePath, true); // Delete source directory
+                                    showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                                    showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine($"Error moving directory: {ex.Message}");
+                                    MessageBox.Show($"Error moving directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                            }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            Debug.WriteLine($"Error moving directory: {ex.Message}");
-                            MessageBox.Show($"Error moving directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            try
+                            {
+                                Directory.Move(sourcePath, destinationPath); // Move folder from source to destination
+                                showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                                showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine($"Error moving directory: {ex.Message}");
+                                MessageBox.Show($"Error moving directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                     }
                 }
@@ -547,32 +629,77 @@ namespace Ass01_21127367
 
                     if (File.Exists(sourcePath))
                     {
-                        try
+                        if (File.Exists(destinationPath))
                         {
-                            File.Move(sourcePath, destinationPath);
-                            File.Delete(sourcePath);
-                            showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
-                            showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                            // File exists at destination, ask for confirmation to replace
+                            MessageBoxResult result = MessageBox.Show("A file with the same name already exists in the destination folder. Do you want to replace it?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                try
+                                {
+                                    File.Delete(destinationPath); // Delete existing file at destination
+                                    File.Move(sourcePath, destinationPath); // Move file from source to destination
+                                    showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                                    showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine($"Error moving file: {ex.Message}");
+                                    MessageBox.Show($"Error moving file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                            }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            Debug.WriteLine($"Error moving file: {ex.Message}");
-                            MessageBox.Show($"Error moving file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            try
+                            {
+                                File.Move(sourcePath, destinationPath); // Move file from source to destination
+                                showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                                showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine($"Error moving file: {ex.Message}");
+                                MessageBox.Show($"Error moving file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                     }
                     else if (Directory.Exists(sourcePath))
                     {
-                        try
+                        if (Directory.Exists(destinationPath))
                         {
-                            CopyDirectory(sourcePath, destinationPath); // Copy folder recursively
-                            Directory.Delete(sourcePath, true);
-                            showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
-                            showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                            // Directory exists at destination, ask for confirmation to replace
+                            MessageBoxResult result = MessageBox.Show("A folder with the same name already exists in the destination folder. Do you want to replace it?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                try
+                                {
+                                    Directory.Delete(destinationPath, true); // Delete existing directory at destination
+                                    CopyDirectory(sourcePath, destinationPath); // Copy folder recursively
+                                    Directory.Delete(sourcePath, true); // Delete source directory
+                                    showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                                    showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine($"Error moving directory: {ex.Message}");
+                                    MessageBox.Show($"Error moving directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                            }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            Debug.WriteLine($"Error moving directory: {ex.Message}");
-                            MessageBox.Show($"Error moving directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            try
+                            {
+                                Directory.Move(sourcePath, destinationPath); // Move folder from source to destination
+                                showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                                showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine($"Error moving directory: {ex.Message}");
+                                MessageBox.Show($"Error moving directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                     }
                 }
