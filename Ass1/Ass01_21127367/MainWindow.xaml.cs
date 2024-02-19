@@ -490,6 +490,86 @@ namespace Ass01_21127367
         }
 
 
+        // Move Button - Click Handler
+        private void MoveButton_Click(object sender, EventArgs e)
+        {
+            if (isLeftWindowFocused)
+            {
+                MyFileInfo selectedItem = LeftList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null)
+                {
+                    string sourcePath = System.IO.Path.Combine(LeftPath_Label.Content.ToString(), selectedItem.Name);
+                    string destinationPath = System.IO.Path.Combine(RightPath_Label.Content.ToString(), selectedItem.Name);
+
+                    if (File.Exists(sourcePath))
+                    {
+                        try
+                        {
+                            File.Move(sourcePath, destinationPath);
+                            File.Delete(sourcePath);
+                            showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                            showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error moving file: {ex.Message}");
+                        }
+                    }
+                    else if (Directory.Exists(sourcePath))
+                    {
+                        try
+                        {
+                            Directory.Move(sourcePath, destinationPath);
+                            Directory.Delete(sourcePath, true);
+                            showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                            showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error moving directory: {ex.Message}");
+                        }
+                    }
+                }
+            }
+            else if (isRightWindowFocused)
+            {
+                MyFileInfo selectedItem = RightList_ListView.SelectedItem as MyFileInfo;
+                if (selectedItem != null)
+                {
+                    string sourcePath = System.IO.Path.Combine(RightPath_Label.Content.ToString(), selectedItem.Name);
+                    string destinationPath = System.IO.Path.Combine(LeftPath_Label.Content.ToString(), selectedItem.Name);
+
+                    if (File.Exists(sourcePath))
+                    {
+                        try
+                        {
+                            File.Move(sourcePath, destinationPath);
+                            File.Delete(sourcePath);
+                            showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                            showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error moving file: {ex.Message}");
+                        }
+                    }
+                    else if (Directory.Exists(sourcePath))
+                    {
+                        try
+                        {
+                            Directory.Move(sourcePath, destinationPath);
+                            Directory.Delete(sourcePath, true);
+                            showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                            showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine($"Error moving directory: {ex.Message}");
+                        }
+                    }
+                }
+            }
+        }
 
     }
 }
