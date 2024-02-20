@@ -31,12 +31,15 @@ namespace Ass01_21127367
         public string Type { get; set; }
         public string Size { get; set; }
         public string Date { get; set; }
+        public ImageSource Icon { get; set; } // Thêm thuộc tính cho icon
 
-        public MyFileInfo(string Name, string Type, string Size, string Date) {
+        public MyFileInfo(string Name, string Type, string Size, string Date, ImageSource Icon)
+        {
             this.Name = Name;
             this.Type = Type;
             this.Size = Size;
             this.Date = Date;
+            this.Icon = Icon;
         }
     }
 
@@ -69,6 +72,14 @@ namespace Ass01_21127367
             }
         }
 
+
+        private ImageSource GetFileIcon(string filePath)
+        {
+            if (File.Exists(filePath))
+                return ShellIcon.GetSmallIcon(filePath);
+            else
+                return ShellIcon.GetSmallFolderIcon();
+        }
 
         // =============== Responsive size of Grid Columns of LEFT & RIGHT WINDOW
         private void leftListView_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -127,18 +138,18 @@ namespace Ass01_21127367
         // =============== Show Directory Information
         private void showDirectoryInformation(string path, ListView lv)
         {
-            DirectoryInfo directoryInformation = new DirectoryInfo(@"" + path);
+            DirectoryInfo directoryInformation = new DirectoryInfo(path);
             DirectoryInfo[] subDirectoryList = directoryInformation.GetDirectories();
             FileInfo[] fileList = directoryInformation.GetFiles();
 
             List<MyFileInfo> listViewItems = new List<MyFileInfo>();
             foreach (DirectoryInfo subDirectory in subDirectoryList)
             {
-                listViewItems.Add(new MyFileInfo(subDirectory.Name, "Folder", "", subDirectory.CreationTime.ToString()));
+                listViewItems.Add(new MyFileInfo(subDirectory.Name, "Folder", "", subDirectory.CreationTime.ToString(), GetFileIcon(subDirectory.FullName)));
             }
             foreach (FileInfo file in fileList)
             {
-                listViewItems.Add(new MyFileInfo(file.Name, file.Extension, convertSize(file.Length), file.CreationTime.ToString()));
+                listViewItems.Add(new MyFileInfo(file.Name, file.Extension, convertSize(file.Length), file.CreationTime.ToString(), GetFileIcon(file.FullName)));
             }
             lv.ItemsSource = listViewItems;
         }

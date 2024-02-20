@@ -117,7 +117,18 @@
 
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                            <GridViewColumn Header="Name">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,5,0"/>
+                                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+
                             <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
                             <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
                             <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
@@ -155,7 +166,17 @@
 
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                            <GridViewColumn Header="Name">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,5,0"/>
+                                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
                             <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
                             <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
                             <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
