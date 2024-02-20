@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Diagnostics; // To use Debug.WriteLine
 using System.IO;
 
-/* Note:
+/* Name Convention :
  * - Tên Element Tag : <TênChứcNăng>_<TênElement>
  * - Tên Event Handler : <TênVịTríElement>_<TênEvent>
  * - Private: camelCase
@@ -31,7 +31,7 @@ namespace Ass01_21127367
         public string Type { get; set; }
         public string Size { get; set; }
         public string Date { get; set; }
-        public ImageSource Icon { get; set; } // Thêm thuộc tính cho icon
+        public ImageSource Icon { get; set; }
 
         public MyFileInfo(string Name, string Type, string Size, string Date, ImageSource Icon)
         {
@@ -52,7 +52,7 @@ namespace Ass01_21127367
         private string leftPath = "";
         private string rightPath = "";
 
-        private Stack<string> leftStack = new Stack<string>(); // Back Stacks
+        private Stack<string> leftStack = new Stack<string>(); // Backward Stacks
         private Stack<string> rightStack = new Stack<string>();
 
         private Stack<string> leftForwardStack = new Stack<string>(); // Forward Stacks
@@ -72,13 +72,13 @@ namespace Ass01_21127367
             }
         }
 
-
+        // =============== Get File Icon
         private ImageSource GetFileIcon(string filePath)
         {
-            if (File.Exists(filePath))
+            if (File.Exists(filePath)) {
                 return ShellIcon.GetSmallIcon(filePath);
-            else
-                return ShellIcon.GetSmallFolderIcon();
+            }
+            return ShellIcon.GetSmallFolderIcon();
         }
 
         // =============== Responsive size of Grid Columns of LEFT & RIGHT WINDOW
@@ -145,16 +145,16 @@ namespace Ass01_21127367
             List<MyFileInfo> listViewItems = new List<MyFileInfo>();
             foreach (DirectoryInfo subDirectory in subDirectoryList)
             {
-                listViewItems.Add(new MyFileInfo(subDirectory.Name, "Folder", "", subDirectory.CreationTime.ToString(), GetFileIcon(subDirectory.FullName)));
+                listViewItems.Add(new MyFileInfo(subDirectory.Name, "Folder", "", subDirectory.LastWriteTime.ToString(), GetFileIcon(subDirectory.FullName)));
             }
             foreach (FileInfo file in fileList)
             {
-                listViewItems.Add(new MyFileInfo(file.Name, file.Extension, convertSize(file.Length), file.CreationTime.ToString(), GetFileIcon(file.FullName)));
+                listViewItems.Add(new MyFileInfo(file.Name, file.Extension, convertSize(file.Length), file.LastWriteTime.ToString(), GetFileIcon(file.FullName)));
             }
             lv.ItemsSource = listViewItems;
         }
 
-        // Convert size of file into Unit ngắn gọn
+        // Convert size of file into suitable Unit
         private string convertSize(long size)
         {
             string[] suffixes = { "B", "KB", "MB", "GB", "TB", "PB" };
@@ -214,7 +214,7 @@ namespace Ass01_21127367
                 {
                     string filePath = LeftPath_Label.Content + "\\" + selectedItem.Name;
                     Debug.WriteLine(filePath);
-                    ProcessStartInfo processStartInfo = new ProcessStartInfo
+                    ProcessStartInfo processStartInfo = new ProcessStartInfo // Open File
                     {
                         FileName = filePath,
                         UseShellExecute = true,
@@ -242,7 +242,7 @@ namespace Ass01_21127367
                 {
                     string filePath = RightPath_Label.Content + "\\" + selectedItem.Name;
                     Debug.WriteLine(filePath);
-                    ProcessStartInfo processStartInfo = new ProcessStartInfo
+                    ProcessStartInfo processStartInfo = new ProcessStartInfo // Open File
                     {
                         FileName = filePath,
                         UseShellExecute = true,
@@ -406,22 +406,22 @@ namespace Ass01_21127367
             }
         }
 
-        // Kiểm tra xem thư mục nguồn có phải là thư mục cha của thư mục đích không
+        // Check if the source path is within the destination path
         private bool IsSourcePathWithinDestination(string sourcePath, string destinationPath)
         {
             DirectoryInfo sourceDirInfo = new DirectoryInfo(sourcePath);
             DirectoryInfo destinationDirInfo = new DirectoryInfo(destinationPath);
 
-            // Lặp qua các thư mục cha của thư mục đích để kiểm tra xem thư mục nguồn có trùng với thư mục cha nào không
+            // Loop through the parent directories of the destination directory
             while (destinationDirInfo.Parent != null)
             {
                 if (sourceDirInfo.FullName.Equals(destinationDirInfo.FullName))
                 {
-                    return true; // Thư mục nguồn là thư mục cha của thư mục đích
+                    return true;
                 }
                 destinationDirInfo = destinationDirInfo.Parent;
             }
-            return false; // Thư mục nguồn không là thư mục cha của thư mục đích
+            return false;
         }
 
         // Copy Button - Click Handler
@@ -439,7 +439,7 @@ namespace Ass01_21127367
                     {
                         try
                         {
-                            CopyFileWithUniqueName(sourcePath, destinationPath); // Copy file with unique name
+                            CopyFileWithUniqueName(sourcePath, destinationPath);
                             showDirectoryInformation(rightPath, RightList_ListView);
                             if (leftPath == rightPath)
                             {
@@ -464,7 +464,7 @@ namespace Ass01_21127367
 
                         try
                         {
-                            CopyDirectoryWithUniqueName(sourcePath, destinationPath); // Copy directory with unique name
+                            CopyDirectoryWithUniqueName(sourcePath, destinationPath);
                             showDirectoryInformation(rightPath, RightList_ListView);
                             if (leftPath == rightPath)
                             {
@@ -491,7 +491,7 @@ namespace Ass01_21127367
                     {
                         try
                         {
-                            CopyFileWithUniqueName(sourcePath, destinationPath); // Copy file with unique name
+                            CopyFileWithUniqueName(sourcePath, destinationPath);
                             showDirectoryInformation(leftPath, LeftList_ListView);
                             if (leftPath == rightPath)
                             {
@@ -516,7 +516,7 @@ namespace Ass01_21127367
                         
                         try
                         {
-                            CopyDirectoryWithUniqueName(sourcePath, destinationPath); // Copy directory with unique name
+                            CopyDirectoryWithUniqueName(sourcePath, destinationPath);
                             showDirectoryInformation(leftPath, LeftList_ListView);
                             if (leftPath == rightPath)
                             {
@@ -549,7 +549,7 @@ namespace Ass01_21127367
                 count++;
             }
 
-            CopyDirectory(sourceDir, newTargetDir); // Copy directory to new target directory
+            CopyDirectory(sourceDir, newTargetDir);
         }
 
         // Copy Directory
@@ -828,7 +828,6 @@ namespace Ass01_21127367
                 MessageBox.Show($"Error deleting file or directory: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
 
     }
 }
