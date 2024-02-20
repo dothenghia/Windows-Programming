@@ -395,6 +395,24 @@ namespace Ass01_21127367
             }
         }
 
+        // Kiểm tra xem thư mục nguồn có phải là thư mục cha của thư mục đích không
+        private bool IsSourcePathWithinDestination(string sourcePath, string destinationPath)
+        {
+            DirectoryInfo sourceDirInfo = new DirectoryInfo(sourcePath);
+            DirectoryInfo destinationDirInfo = new DirectoryInfo(destinationPath);
+
+            // Lặp qua các thư mục cha của thư mục đích để kiểm tra xem thư mục nguồn có trùng với thư mục cha nào không
+            while (destinationDirInfo.Parent != null)
+            {
+                if (sourceDirInfo.FullName.Equals(destinationDirInfo.FullName))
+                {
+                    return true; // Thư mục nguồn là thư mục cha của thư mục đích
+                }
+                destinationDirInfo = destinationDirInfo.Parent;
+            }
+            return false; // Thư mục nguồn không là thư mục cha của thư mục đích
+        }
+
         // Copy Button - Click Handler
         private void CopyButton_Click(object sender, EventArgs e)
         {
@@ -412,6 +430,10 @@ namespace Ass01_21127367
                         {
                             CopyFileWithUniqueName(sourcePath, destinationPath); // Copy file with unique name
                             showDirectoryInformation(rightPath, RightList_ListView);
+                            if (leftPath == rightPath)
+                            {
+                                showDirectoryInformation(leftPath, LeftList_ListView);
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -421,10 +443,22 @@ namespace Ass01_21127367
                     }
                     else if (Directory.Exists(sourcePath)) // FOLDER
                     {
+                        if (leftPath != rightPath) {
+                            if (IsSourcePathWithinDestination(sourcePath, destinationPath))
+                            {
+                                MessageBox.Show("Cannot copy a parent directory into its own subdirectory.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                return;
+                            }
+                        }
+
                         try
                         {
                             CopyDirectoryWithUniqueName(sourcePath, destinationPath); // Copy directory with unique name
                             showDirectoryInformation(rightPath, RightList_ListView);
+                            if (leftPath == rightPath)
+                            {
+                                showDirectoryInformation(leftPath, LeftList_ListView);
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -448,6 +482,10 @@ namespace Ass01_21127367
                         {
                             CopyFileWithUniqueName(sourcePath, destinationPath); // Copy file with unique name
                             showDirectoryInformation(leftPath, LeftList_ListView);
+                            if (leftPath == rightPath)
+                            {
+                                showDirectoryInformation(rightPath, RightList_ListView);
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -457,10 +495,22 @@ namespace Ass01_21127367
                     }
                     else if (Directory.Exists(sourcePath))
                     {
+                        if (leftPath != rightPath) {
+                            if (IsSourcePathWithinDestination(sourcePath, destinationPath))
+                            {
+                                MessageBox.Show("Cannot copy a parent directory into its own subdirectory.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                return;
+                            }
+                        }
+                        
                         try
                         {
                             CopyDirectoryWithUniqueName(sourcePath, destinationPath); // Copy directory with unique name
                             showDirectoryInformation(leftPath, LeftList_ListView);
+                            if (leftPath == rightPath)
+                            {
+                                showDirectoryInformation(rightPath, RightList_ListView);
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -725,6 +775,7 @@ namespace Ass01_21127367
 
                     DeleteFileOrDirectory(filePath);
                     showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
+                    showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
                 }
             }
             else if (isRightWindowFocused)
@@ -741,6 +792,7 @@ namespace Ass01_21127367
                     }
 
                     DeleteFileOrDirectory(filePath);
+                    showDirectoryInformation(LeftPath_Label.Content.ToString(), LeftList_ListView);
                     showDirectoryInformation(RightPath_Label.Content.ToString(), RightList_ListView);
                 }
             }
