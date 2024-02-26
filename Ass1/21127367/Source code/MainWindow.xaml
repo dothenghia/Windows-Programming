@@ -1,0 +1,190 @@
+﻿<Window x:Class="Ass01_21127367.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ass01_21127367"
+        mc:Ignorable="d"
+        Title="Ass01_21127367"
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        >
+    <DockPanel LastChildFill="True">
+        
+        <!-- =============== TOOLBAR =============== -->
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Border x:Name="ToolBar_Border" BorderBrush="#FFC3C3C3" BorderThickness="0,0,0,2">
+                <StackPanel Orientation="Horizontal">
+                    <!-- Back button -->
+                    <Button x:Name="Back_Button" Click="BackButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Image Source="images/back.png" Margin="6,0,6,0"/>
+                            <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Back</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!-- Forward button -->
+                    <Button x:Name="Forward_Button" Click="ForwardButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Margin="8,0,8,0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Image Source="images/forward.png" Margin="6,0,6,0"/>
+                            <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Forward</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!-- Up button -->
+                    <Button x:Name="Up_Button" Click="UpButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Image Source="images/up.png" Margin="6,0,6,0"/>
+                            <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Up</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <StackPanel Width="2" Background="#FFC3C3C3" Margin="10,6,10,6"></StackPanel>
+
+                    <!-- Copy button -->
+                    <Button x:Name="Copy_Button" Click="CopyButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Image Source="images/copy.png" Margin="6,0,6,0"/>
+                            <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Copy</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!-- Move button -->
+                    <Button x:Name="Move_Button" Click="MoveButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Margin="8,0,8,0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Image Source="images/move.png" Margin="6,0,6,0"/>
+                            <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Move</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <!-- Delete button -->
+                    <Button x:Name="Delete_Button" Click="DeleteButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Image Source="images/delete.png" Margin="6,0,6,0"/>
+                            <TextBlock TextAlignment="Center" Margin="0,4,0,0" FontSize="13.2">Delete</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <StackPanel Width="2" Background="#FFC3C3C3" Margin="10,6,10,6"></StackPanel>
+
+                    <!-- Resize button -->
+                    <Button x:Name="Resize_Button" Click="ResizeButton_Click" Width="52" Height="72" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,0,0,0">
+                        <StackPanel Margin="0,7,0,0">
+                            <Image Source="images/resize.png" Margin="8,0,8,0"/>
+                            <TextBlock TextAlignment="Center" FontSize="13.2">Reset</TextBlock>
+                            <TextBlock TextAlignment="Center" FontSize="13.2" Margin="0,-6,0,0">View</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        
+        <!-- =============== TWO WINDOWS =============== -->
+        <Grid x:Name="TwoWindows_Grid">
+            <!-- Define Grid rows & columns + Grid Splitter -->
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <GridSplitter Grid.Column="1" Grid.RowSpan="1" HorizontalAlignment="Stretch"></GridSplitter>
+
+            <!-- =============== LEFT WINDOW =============== -->
+            <DockPanel
+                x:Name="LeftWindow_DockPanel"
+                GotFocus="leftWindow_GotFocus"
+                Grid.Row="0"
+                Grid.Column="0"
+                LastChildFill="True"
+                >
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    
+                    <!-- ComboBox of Hard Drives + Label of Current Directory -->
+                    <ComboBox x:Name="LeftDrives_ComboBox" Width="52" SelectionChanged="leftComboBox_SelectionChanged"/>
+                    <Label x:Name="LeftPath_Label"/>
+                    
+                </StackPanel>
+
+                
+                <!-- ListView of Current Directory Information -->
+                <ListView x:Name="LeftList_ListView" SizeChanged="leftListView_SizeChanged" PreviewKeyDown="ShowItemInformation_PreviewKeyDown">
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <EventSetter Event="MouseDoubleClick" Handler="ShowItemInformation_DBClick"/>
+                        </Style>
+                    </ListView.Resources>
+
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,5,0"/>
+                                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                            <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </DockPanel>
+
+
+            
+            <!-- =============== RIGHT WINDOW =============== -->
+            <DockPanel 
+                x:Name="RightWindow_DockPanel"
+                GotFocus="rightWindow_GotFocus"
+                Grid.Row="0"
+                Grid.Column="2"
+                LastChildFill="True"
+                >
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+
+                    <!-- ComboBox of Hard Drives + Label of Current Directory -->
+                    <ComboBox x:Name="RightDrives_ComboBox" Width="52" SelectionChanged="rightComboBox_SelectionChanged"/>
+                    <Label x:Name="RightPath_Label"/>
+                    
+                </StackPanel>
+
+
+                <!-- ListView of Current Directory Information -->
+                <ListView x:Name="RightList_ListView" SizeChanged="rightListView_SizeChanged" PreviewKeyDown="ShowItemInformation_PreviewKeyDown">
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <EventSetter Event="MouseDoubleClick" Handler="ShowItemInformation_DBClick"/>
+                        </Style>
+                    </ListView.Resources>
+
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{Binding Icon}" Width="16" Height="16" Margin="0,0,5,0"/>
+                                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                            <GridViewColumn Header="Size" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </DockPanel>
+
+        </Grid>
+    </DockPanel>
+</Window>
