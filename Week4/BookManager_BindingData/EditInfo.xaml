@@ -1,0 +1,102 @@
+﻿<Window x:Class="BookManager_BindingData.EditInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookManager_BindingData"
+        mc:Ignorable="d"
+        Title="EditInfo" Height="300" Width="800">
+    <Window.Resources>
+        <Style TargetType="StackPanel" x:Key="DecisionBtns">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="5, 10"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Red" FontSize="20">!</TextBlock>
+                <AdornedElementPlaceholder/>
+            </StackPanel>
+        </ControlTemplate>
+        
+        <Style TargetType="TextBox" x:Key="TextBoxInEror">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Margin" Value="5,0,10,0"></Setter>
+            <Setter Property="Padding" Value="2"/>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="BorderBrush" Value="Red"></Setter>
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <local:ConvertImageNameToAbsPath x:Key="toAbsolutePathImg"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".4*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="60" Width=".2*"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Book Name"></Label>
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Style="{StaticResource TextBoxInEror}">
+                <TextBox.Text>
+                    <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:BookNameValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Grid.Row="1" Grid.Column="0" Content="Author"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Author}" Style="{StaticResource TextBoxInEror}"></TextBox>
+            <Label Grid.Row="2" Grid.Column="0" Content="Publised Date"/>
+            <TextBox Grid.Row="2" Grid.Column="1"
+                     Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                     Style="{StaticResource TextBoxInEror}">
+                <TextBox.Text>
+                    <Binding Path="PublishedDate" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:PublishDateValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label Grid.Row="3" Grid.Column="0" Content="Cover Path"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CoverPath}"></TextBox>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" Style="{StaticResource DecisionBtns}">
+                <Button Content="Save" Width="100" Margin="0,0,5,0" Click="SaveBtn_Click"></Button>
+                <Button Content="Cancel" Width="100" Click="CancelBtn_Click"></Button>
+            </StackPanel>
+        </Grid>
+
+        <DockPanel Grid.Column="0" Grid.Row="0" LastChildFill="True">
+            <Button DockPanel.Dock="Bottom" Content="Refresh Image" VerticalAlignment="Bottom"></Button>
+            <Image DockPanel.Dock="Top" Source="{Binding CoverPath, Converter={StaticResource toAbsolutePathImg}}"></Image>
+        </DockPanel>
+    </Grid>
+</Window>
