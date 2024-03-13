@@ -11,27 +11,10 @@
         WindowStartupLocation="CenterScreen"
         Icon="/icon.png">
     <Grid>
-        <Canvas>
-            <Button 
-                Content="Dong y" 
-                Width="80" Height="25" 
-                Canvas.Left="50"
-                Canvas.Top="20"
-                IsDefault="True"
-                Click="agreeButton_Click"/>
-            <Button 
-                Content="Huy" 
-                Width="80" Height="25" 
-                Canvas.Left="150"
-                Canvas.Top="20"
-                IsCancel="True"/>
+
+        <Canvas Height="300" Width="240">
+            <TextBlock FontSize="200" Canvas.Bottom="0" FontFamily="Impact">2</TextBlock>
+            <Rectangle Canvas.ZIndex="3" Width="160" Height="280" Canvas.Bottom="0" Canvas.Right="0" Fill="blue"/>
         </Canvas>
-        <StackPanel>
-            <CheckBox>123</CheckBox>
-            <CheckBox>
-                <TextBlock>123</TextBlock>
-            </CheckBox>
-            <CheckBox>123</CheckBox>
-        </StackPanel>
     </Grid>
 </Window>

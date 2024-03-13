@@ -33,6 +33,8 @@ namespace BookManager_BindingData
             throw new NotImplementedException();
         }
     }
+
+    
     public class Book : INotifyPropertyChanged
     {
         private string _title;

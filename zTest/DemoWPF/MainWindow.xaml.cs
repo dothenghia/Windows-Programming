@@ -24,7 +24,7 @@ namespace DemoWPF
         public MainWindow()
         {
             InitializeComponent();
-            MessageBox_Demo();
+            //MessageBox_Demo();
         }
 
         private static void MessageBox_Demo()
