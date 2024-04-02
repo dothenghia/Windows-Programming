@@ -1,0 +1,68 @@
+
+=======================================================
+            CSC13001 - WINDOWS PROGRAMMING
+                Movie Management System
+
+        Class : 21KTPM2
+        Members :
+            + 21127367 - Đỗ Thế Nghĩa
+            + 21127384 - Dương Hạnh Nhi
+            + 21127461 - Lê Thành Trung
+
+=======================================================
+
+TỔNG ĐIỂM : 10
+
+-- PHÂN HỆ KHÁCH
+100% = 0.5đ --- 1. Database và Dữ liệu
+
+100% = 0.5đ --- 2. Đăng ký và Đăng nhập (Có Hash password)
+
+100% = 0.5đ --- 3. Có xử lý Validation đầy đủ trong tài khoản
+
+100% = 0.5đ --- 4. Màn hình chính có đầy đủ các thành phần như yêu cầu 
+
+100% = 0.5đ --- 5. Có slider cho phim hot (phim bom tấn) ở màn hình chính 
+
+100% = 0.5đ --- 6. Danh sách phim đang bán vé theo dạng CardView
+
+100% = 0.5đ --- 7. Danh sách phim đang bán vé theo dạng slider giống netflix 
+
+100% = 0.5đ --- 8. Hiệu ứng highlight khi trỏ chuột vào phim ở danh sách
+
+100% = 0.5đ --- 9. Có play trailer khi highlight
+
+100% = 0.5đ --- 10. Chức năng tìm kiếm phim (hiển thị dạng ListView + sort theo cột)
+
+100% = 0.5đ --- 11. Chức năng lọc (filter) và phân trang
+
+100% = 0.5đ --- 12. Màn hình chi tiết phim đầy đủ thông tin của phim, 
+                    Thông tin suất chiếu (bao gồm số lượng vé còn) 
+                    và Chọn chức năng đặt vé.
+
+-- PHÂN HỆ NGƯỜI DÙNG ĐÃ ĐĂNG NHẬP
+100% = 0.5đ --- 13. Chức năng đặt vé bao gồm thông tin phim được chọn, 
+                    Sơ đồ chọn ghế, Giá tiền, Voucher, Thông báo kết quả
+
+100% = 0.5đ --- 14. Chức năng thay đổi thông tin tài khoản,
+                    Xem danh sách vé đã mua của tài khoản,
+                    Xem thông tin chi tiết vé đã mua 
+
+-- PHÂN HỆ QUẢN TRỊ
+100% = 0.5đ --- 15. Bố cục màn hình dashboard như yêu cầu
+
+100% = 0.5đ --- 16. Dữ liệu đầy đủ cho dashboard
+
+100% = 0.5đ --- 17. Quản lý Phim (thêm, xóa, sửa)
+
+100% = 0.5đ --- 18. Quản lý thông tin phụ cho phim
+                    (Diễn viên, Đạo diễn, Phân loại độ tuổi,
+                    Thể loại, Hình ảnh, Năm phát hành, ...)
+
+100% = 0.5đ --- 19. Quản lý Suất chiếu, Vé và Voucher
+
+100% = 0.5đ --- 20. Biểu đồ báo cáo thống kê doanh thu theo thời gian
+
+
+
+

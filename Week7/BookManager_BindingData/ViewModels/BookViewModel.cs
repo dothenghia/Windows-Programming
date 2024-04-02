@@ -13,17 +13,17 @@ namespace BookManager_BindingData.ViewModels
 {
     class BookViewModel
     {
-        public ObservableCollection<Book> Books { get; set;}
+        public ObservableCollection<Book> Books { get; set; }
         public Book selectedBook { get; set; }
 
         public RelayCommand DeleteCommand { get; set; }
         public RelayCommand AddCommand { get; set; }
         public RelayCommand UpdateCommand { get; set; }
 
-        public List<string> Labels {  get; set; }
+        public List<string> Labels { get; set; }
         public ChartValues<double> Prices;
         public SeriesCollection SeriesCollection { get; set; }
-        public BookViewModel() 
+        public BookViewModel()
         {
             Books = new ObservableCollection<Book>()
             {
@@ -45,7 +45,7 @@ namespace BookManager_BindingData.ViewModels
                     Values = Prices
                 }
             };
-        selectedBook = Books[0];
+            selectedBook = Books[0];
 
             DeleteCommand = new RelayCommand(OnDelete, CanDelete);
             AddCommand = new RelayCommand(OnAdd, CanAdd);
@@ -63,7 +63,7 @@ namespace BookManager_BindingData.ViewModels
 
         private void OnAdd(object value)
         {
-            EditWindow newWindow = new EditWindow(new Book("","","","", 0));
+            EditWindow newWindow = new EditWindow(new Book("", "", "", "", 0));
             newWindow.ShowDialog();
 
             Book newBook = newWindow.returnData;
