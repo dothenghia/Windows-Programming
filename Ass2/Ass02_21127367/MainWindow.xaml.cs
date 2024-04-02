@@ -60,10 +60,10 @@ namespace Ass02_21127367
             {
                 game.MoveSelectedCell("Down");
             }
-            //else if (e.Key == Key.Enter)
-            //{
-            //    game.PlaceMark();
-            //}
+            else if (e.Key == Key.Enter || e.Key == Key.Space)
+            {
+                game.SelectCell_PreviewKeyDown();
+            }
         }
 
     }

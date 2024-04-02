@@ -31,6 +31,7 @@ namespace Ass02_21127367
         // ========== Render Chessboard
         public void RenderGrid(int rows, int cols)
         {
+            Debug.WriteLine("Turn: " + (isXTurn ? "X" : "O") + " | Row: " + currentRow + " | Col: " + currentCol);
             if (rows <= 0 || cols <= 0 || mainCanvas == null) return;
 
             // --- For the first time or when the size of the grid changes
@@ -64,7 +65,7 @@ namespace Ass02_21127367
                     Canvas.SetTop(rect, i * cellHeight);
 
                     // --- Add event click for cell
-                    rect.MouseLeftButtonDown += Cell_Click;
+                    rect.MouseLeftButtonDown += SelectCell_Click;
 
                     mainCanvas.Children.Add(rect);
 
@@ -82,7 +83,7 @@ namespace Ass02_21127367
         }
 
         // ========== Event Click for Cell
-        private void Cell_Click(object sender, MouseButtonEventArgs e)
+        private void SelectCell_Click(object sender, MouseButtonEventArgs e)
         {
             Rectangle rect = (Rectangle)sender;
 
@@ -90,8 +91,44 @@ namespace Ass02_21127367
             int rowIndex = (int)(Canvas.GetTop(rect) / (mainCanvas.ActualHeight / gridCells.GetLength(0)));
             int colIndex = (int)(Canvas.GetLeft(rect) / (mainCanvas.ActualWidth / gridCells.GetLength(1)));
 
+            MarkCell(rect, rowIndex, colIndex);
+        }
+
+        // ========== Event PreviewKeyDown for Cell (Enter or Space)
+        public void SelectCell_PreviewKeyDown()
+        {
+            Rectangle selectedRect = null;
+
+            // --- Get the selected cell by the current row and column index
+            double cellWidth = mainCanvas.ActualWidth / gridCells.GetLength(1);
+            double cellHeight = mainCanvas.ActualHeight / gridCells.GetLength(0);
+            double left = currentCol * cellWidth;
+            double top = currentRow * cellHeight;
+
+            foreach (var child in mainCanvas.Children)
+            {
+                if (child is Rectangle rect)
+                {
+                    double rectLeft = Canvas.GetLeft(rect);
+                    double rectTop = Canvas.GetTop(rect);
+                    if (rectLeft == left && rectTop == top)
+                    {
+                        selectedRect = rect;
+                        break; // Stop the loop after finding the selected rectangle
+                    }
+                }
+            }
+
+            if (selectedRect != null) {
+                MarkCell(selectedRect, currentRow, currentCol);
+            }
+        }
+
+        // ========== Handle marking the cell
+        private void MarkCell(Rectangle rect, int rowIndex, int colIndex)
+        {
             // --- Check if the cell is already filled
-            if (gridCells[rowIndex, colIndex] != "") return;
+            if (gridCells == null || gridCells[rowIndex, colIndex] != "") return;
 
             // --- Handle the clicked cell
             gridCells[rowIndex, colIndex] = isXTurn ? "X" : "O";
@@ -103,6 +140,7 @@ namespace Ass02_21127367
             if (isXTurn)
             {
                 DrawX(rect);
+                isXTurn = false;
                 if (CheckWin("X", rowIndex, colIndex)) {
                     MessageBoxResult result = MessageBox.Show("X wins!", "Result", MessageBoxButton.OK);
                     if (result == MessageBoxResult.OK) {
@@ -113,6 +151,7 @@ namespace Ass02_21127367
             else
             {
                 DrawO(rect);
+                isXTurn = true;
                 if (CheckWin("O", rowIndex, colIndex)) {
                     MessageBoxResult result = MessageBox.Show("O wins!", "Result", MessageBoxButton.OK);
                     if (result == MessageBoxResult.OK) {
@@ -120,8 +159,6 @@ namespace Ass02_21127367
                     }
                 }
             }
-
-            isXTurn = !isXTurn; // --- Switch turns
 
             // --- Check Draw game
             if (CheckDraw()) {
