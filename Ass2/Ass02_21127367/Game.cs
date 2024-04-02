@@ -92,32 +92,33 @@ namespace Ass02_21127367
             if (isXTurn)
             {
                 DrawX(rect);
-                if (CheckWin("X", rowIndex, colIndex))
-                {
+                if (CheckWin("X", rowIndex, colIndex)) {
                     MessageBoxResult result = MessageBox.Show("X wins!", "Result", MessageBoxButton.OK);
-                    if (result == MessageBoxResult.OK)
-                    {
-                        Debug.WriteLine("X wins");
-                        // ResetGame();
+                    if (result == MessageBoxResult.OK) {
+                        ResetGame();
                     }
                 }
             }
             else
             {
                 DrawO(rect);
-                if (CheckWin("O", rowIndex, colIndex))
-                {
+                if (CheckWin("O", rowIndex, colIndex)) {
                     MessageBoxResult result = MessageBox.Show("O wins!", "Result", MessageBoxButton.OK);
-                    if (result == MessageBoxResult.OK)
-                    {
-                        Debug.WriteLine("O wins");
-                        // ResetGame();
+                    if (result == MessageBoxResult.OK) {
+                        ResetGame();
                     }
                 }
             }
 
-            
             isXTurn = !isXTurn; // --- Switch turns
+
+            // --- Check Draw game
+            if (CheckDraw()) {
+                MessageBoxResult result = MessageBox.Show("Draw!", "Result", MessageBoxButton.OK);
+                if (result == MessageBoxResult.OK) {
+                    ResetGame();
+                }
+            }
         }
 
         private void DrawX(Rectangle cell)
@@ -242,5 +243,17 @@ namespace Ass02_21127367
             return false;
         }
 
+        public void ResetGame()
+        {
+            for (int i = 0; i < gridCells.GetLength(0); i++)
+            {
+                for (int j = 0; j < gridCells.GetLength(1); j++)
+                {
+                    gridCells[i, j] = "";
+                }
+            }
+            isXTurn = true;
+            RenderGrid(gridCells.GetLength(0), gridCells.GetLength(1));
+        }
     }
 }
