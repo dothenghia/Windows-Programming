@@ -27,6 +27,7 @@ namespace Ass02_21127367
         public MainWindow()
         {
             InitializeComponent();
+            this.PreviewKeyDown += MainWindow_PreviewKeyDown;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -41,7 +42,29 @@ namespace Ass02_21127367
             game.RenderGrid(game.gridCells.GetLength(0), game.gridCells.GetLength(1));
         }
 
-
+        private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Left)
+            {
+                game.MoveSelectedCell("Left");
+            }
+            else if (e.Key == Key.Right)
+            {
+                game.MoveSelectedCell("Right");
+            }
+            else if (e.Key == Key.Up)
+            {
+                game.MoveSelectedCell("Up");
+            }
+            else if (e.Key == Key.Down)
+            {
+                game.MoveSelectedCell("Down");
+            }
+            //else if (e.Key == Key.Enter)
+            //{
+            //    game.PlaceMark();
+            //}
+        }
 
     }
 }

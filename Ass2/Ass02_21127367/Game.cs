@@ -19,6 +19,10 @@ namespace Ass02_21127367
         public string[,]? gridCells = null; // Store the state of each cell "X" or "O"
         public bool isXTurn = true;
 
+        public int currentRow = 0;
+        public int currentCol = 0;
+        public Rectangle? selectedCell = null;
+
         public Game(Canvas Main_Canvas)
         {
             mainCanvas = Main_Canvas;
@@ -72,6 +76,9 @@ namespace Ass02_21127367
                     }
                 }
             }
+
+            // --- Update the selected cell
+            RenderSelectedCell();
         }
 
         // ========== Event Click for Cell
@@ -88,6 +95,10 @@ namespace Ass02_21127367
 
             // --- Handle the clicked cell
             gridCells[rowIndex, colIndex] = isXTurn ? "X" : "O";
+
+            currentCol = colIndex;
+            currentRow = rowIndex;
+            RenderSelectedCell(); // --- Update the selected cell
 
             if (isXTurn)
             {
@@ -121,6 +132,7 @@ namespace Ass02_21127367
             }
         }
 
+        // ========== Draw "X" on the cell
         private void DrawX(Rectangle cell)
         {
             double x1 = Canvas.GetLeft(cell) + (cell.Width * 0.2);
@@ -150,6 +162,7 @@ namespace Ass02_21127367
             mainCanvas.Children.Add(line2);
         }
 
+        // ========== Draw "O" on the cell
         private void DrawO(Rectangle cell)
         {
             double x = Canvas.GetLeft(cell) + (cell.Width / 2);
@@ -170,6 +183,7 @@ namespace Ass02_21127367
             mainCanvas.Children.Add(ellipse);
         }
 
+        // ========== Check Draw game
         private bool CheckDraw()
         {
             for (int i = 0; i < gridCells.GetLength(0); i++)
@@ -182,6 +196,7 @@ namespace Ass02_21127367
             return true;
         }
 
+        // ========== Check Win game
         private bool CheckWin(string turn, int row, int col)
         {
             // Check Row
@@ -243,6 +258,7 @@ namespace Ass02_21127367
             return false;
         }
 
+        // ========== Reset Game
         public void ResetGame()
         {
             for (int i = 0; i < gridCells.GetLength(0); i++)
@@ -254,6 +270,62 @@ namespace Ass02_21127367
             }
             isXTurn = true;
             RenderGrid(gridCells.GetLength(0), gridCells.GetLength(1));
+
+            // Reset the selected cell
+            currentCol = 0;
+            currentRow = 0;
+            RenderSelectedCell();
+        }
+
+        // ========== Move Selected Cell
+        public void MoveSelectedCell(string direction)
+        {
+            if (direction == "Left") {
+                if (currentCol > 0) {
+                    currentCol--;
+                }
+            }
+            else if (direction == "Right") {
+                if (currentCol < gridCells.GetLength(1) - 1) {
+                    currentCol++;
+                }
+            }
+            else if (direction == "Up") {
+                if (currentRow > 0) {
+                    currentRow--;
+                }
+            }
+            else if (direction == "Down") {
+                if (currentRow < gridCells.GetLength(0) - 1) {
+                    currentRow++;
+                }
+            }
+
+            RenderSelectedCell();
+        }
+
+        // ========== Render Selected Cell
+        private void RenderSelectedCell()
+        {
+            if (selectedCell != null) {
+                mainCanvas.Children.Remove(selectedCell);
+            }
+
+            double cellWidth = mainCanvas.ActualWidth / gridCells.GetLength(1);
+            double cellHeight = mainCanvas.ActualHeight / gridCells.GetLength(0);
+
+            selectedCell = new Rectangle
+            {
+                Width = cellWidth,
+                Height = cellHeight,
+                Stroke = Brushes.Blue,
+                StrokeThickness = 3,
+                Fill = Brushes.Transparent
+            };
+            Canvas.SetLeft(selectedCell, currentCol * cellWidth);
+            Canvas.SetTop(selectedCell, currentRow * cellHeight);
+
+            mainCanvas.Children.Add(selectedCell);
         }
     }
 }
