@@ -32,7 +32,7 @@ namespace Ass02_21127367
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             game = new Game(Main_Canvas);
-            game.RenderGrid(5, 5); // Default when the program starts
+            game.RenderGrid(12, 12); // Default when the program starts
             SizeChanged += MainWindow_SizeChanged;
         }
 

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -91,10 +92,28 @@ namespace Ass02_21127367
             if (isXTurn)
             {
                 DrawX(rect);
+                if (CheckWin("X", rowIndex, colIndex))
+                {
+                    MessageBoxResult result = MessageBox.Show("X wins!", "Result", MessageBoxButton.OK);
+                    if (result == MessageBoxResult.OK)
+                    {
+                        Debug.WriteLine("X wins");
+                        // ResetGame();
+                    }
+                }
             }
             else
             {
                 DrawO(rect);
+                if (CheckWin("O", rowIndex, colIndex))
+                {
+                    MessageBoxResult result = MessageBox.Show("O wins!", "Result", MessageBoxButton.OK);
+                    if (result == MessageBoxResult.OK)
+                    {
+                        Debug.WriteLine("O wins");
+                        // ResetGame();
+                    }
+                }
             }
 
             
@@ -148,6 +167,79 @@ namespace Ass02_21127367
             Canvas.SetTop(ellipse, y - radiusY);
 
             mainCanvas.Children.Add(ellipse);
+        }
+
+        private bool CheckDraw()
+        {
+            for (int i = 0; i < gridCells.GetLength(0); i++)
+            {
+                for (int j = 0; j < gridCells.GetLength(1); j++)
+                {
+                    if (gridCells[i, j] == "") return false;
+                }
+            }
+            return true;
+        }
+
+        private bool CheckWin(string turn, int row, int col)
+        {
+            // Check Row
+            int count = 0;
+            for (int c = col - 4; c <= col + 4; c++)
+            {
+                if (c >= 0 && c < gridCells.GetLength(1) && gridCells[row, c] == turn) {
+                    count++;
+                    if (count == 5) return true;
+                }
+                else {
+                    count = 0;
+                }
+            }
+
+            // Check Column
+            count = 0;
+            for (int r = row - 4; r <= row + 4; r++)
+            {
+                if (r >= 0 && r < gridCells.GetLength(0) && gridCells[r, col] == turn) {
+                    count++;
+                    if (count == 5) return true;
+                }
+                else {
+                    count = 0;
+                }
+            }
+
+            // Check main diagonal
+            count = 0;
+            for (int d = -4; d <= 4; d++)
+            {
+                int r = row + d;
+                int c = col + d;
+                if (r >= 0 && r < gridCells.GetLength(0) && c >= 0 && c < gridCells.GetLength(1) && gridCells[r, c] == turn) {
+                    count++;
+                    if (count == 5) return true;
+                }
+                else {
+                    count = 0;
+                }
+            }
+
+            // Check sub diagonal
+            count = 0;
+            for (int d = -4; d <= 4; d++)
+            {
+                int r = row + d;
+                int c = col - d;
+                if (r >= 0 && r < gridCells.GetLength(0) && c >= 0 && c < gridCells.GetLength(1) && gridCells[r, c] == turn) {
+                    count++;
+                    if (count == 5) return true;
+                }
+                else {
+                    count = 0;
+                }
+            }
+
+            return false;
         }
 
     }
