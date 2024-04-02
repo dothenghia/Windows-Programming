@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ass02_21127367"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Height="630" Width="600"
+        Title="Tic Tac Toe"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        >
+    <!-- ==================== Define Page Resources ==================== -->
 
-    </Grid>
+    
+    <!-- ==================== Define Page Layout ==================== -->
+    <DockPanel LastChildFill="True">
+        <!-- Top tool bar -->
+        <ToolBar Height="30" DockPanel.Dock="Top">
+            <Button Content="Open"/>
+            <Button Content="Save"/>
+            <Button Content="Restart"/>
+            <Button Content="Exit"/>
+        </ToolBar>
+
+        <!-- Caro Canvas Grid -->
+        <Grid DockPanel.Dock="Bottom" Margin="20, 20">
+            <Border BorderBrush="#D8D8D8" BorderThickness="2">
+                <Canvas x:Name="Main_Canvas" />
+            </Border>
+        </Grid>
+
+    </DockPanel>
 </Window>
