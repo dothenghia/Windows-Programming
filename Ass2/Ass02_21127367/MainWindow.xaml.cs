@@ -6,6 +6,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
+/*
+MAIN FLOW :
+- New Game -> RenderGrid -> Cell_Click -> CheckWin 
+- Resize Window -> RenderGrid
+- Restart Game -> RenderGrid
+
+ 
+ 
+ 
+*/
+
+
 namespace Ass02_21127367
 {
     public partial class MainWindow : Window
@@ -19,8 +31,8 @@ namespace Ass02_21127367
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Game game = new Game(Main_Canvas);
-            game.RenderGrid(12, 12); // Default when the program starts
+            game = new Game(Main_Canvas);
+            game.RenderGrid(5, 5); // Default when the program starts
             SizeChanged += MainWindow_SizeChanged;
         }
 

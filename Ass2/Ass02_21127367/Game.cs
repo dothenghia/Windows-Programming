@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,8 @@ namespace Ass02_21127367
     public class Game
     {
         public Canvas mainCanvas;
-        public string[,] gridCells;
+
+        public string[,]? gridCells = null; // Store the state of each cell "X" or "O"
         public bool isXTurn = true;
 
         public Game(Canvas Main_Canvas)
@@ -21,14 +23,26 @@ namespace Ass02_21127367
             mainCanvas = Main_Canvas;
         }
 
+        // ========== Render Chessboard
         public void RenderGrid(int rows, int cols)
         {
-            mainCanvas.Children.Clear();
-            gridCells = new string[rows, cols];
+            if (rows <= 0 || cols <= 0 || mainCanvas == null) return;
 
+            // --- For the first time or when the size of the grid changes
+            if (gridCells == null || gridCells.GetLength(0) != rows || gridCells.GetLength(1) != cols) {
+                gridCells = new string[rows, cols];
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j < cols; j++) {
+                        gridCells[i, j] = "";
+                    }
+                }
+            }
+
+            mainCanvas.Children.Clear();
             double cellWidth = mainCanvas.ActualWidth / cols;
             double cellHeight = mainCanvas.ActualHeight / rows;
 
+            // --- Draw Cells
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
@@ -41,32 +55,50 @@ namespace Ass02_21127367
                         StrokeThickness = 2,
                         Fill = Brushes.White
                     };
-
                     Canvas.SetLeft(rect, j * cellWidth);
                     Canvas.SetTop(rect, i * cellHeight);
 
+                    // --- Add event click for cell
                     rect.MouseLeftButtonDown += Cell_Click;
 
                     mainCanvas.Children.Add(rect);
 
-                    gridCells[i, j] = "";
+                    // --- Draw "X" or "O" on the cell if it's already filled
+                    if (gridCells[i, j] == "X") {
+                        DrawX(rect);
+                    } else if (gridCells[i, j] == "O") {
+                        DrawO(rect);
+                    }
                 }
             }
         }
 
-
+        // ========== Event Click for Cell
         private void Cell_Click(object sender, MouseButtonEventArgs e)
         {
             Rectangle rect = (Rectangle)sender;
 
-            if (isXTurn) {
+            // --- Calculate the row and column index of the clicked cell
+            int rowIndex = (int)(Canvas.GetTop(rect) / (mainCanvas.ActualHeight / gridCells.GetLength(0)));
+            int colIndex = (int)(Canvas.GetLeft(rect) / (mainCanvas.ActualWidth / gridCells.GetLength(1)));
+
+            // --- Check if the cell is already filled
+            if (gridCells[rowIndex, colIndex] != "") return;
+
+            // --- Handle the clicked cell
+            gridCells[rowIndex, colIndex] = isXTurn ? "X" : "O";
+
+            if (isXTurn)
+            {
                 DrawX(rect);
             }
-            else {
+            else
+            {
                 DrawO(rect);
             }
 
-            isXTurn = !isXTurn;
+            
+            isXTurn = !isXTurn; // --- Switch turns
         }
 
         private void DrawX(Rectangle cell)
@@ -74,7 +106,7 @@ namespace Ass02_21127367
             double x1 = Canvas.GetLeft(cell) + (cell.Width * 0.2);
             double y1 = Canvas.GetTop(cell) + (cell.Height * 0.2);
             double x2 = x1 + (cell.Width * 0.6);
-            double y2 = y1 + (cell.Width * 0.6);
+            double y2 = y1 + (cell.Height * 0.6);
 
             Line line1 = new Line {
                 Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e14e51")),
@@ -102,17 +134,18 @@ namespace Ass02_21127367
         {
             double x = Canvas.GetLeft(cell) + (cell.Width / 2);
             double y = Canvas.GetTop(cell) + (cell.Height / 2);
-            double radius = (cell.Width * 0.7) / 2;
+            double radiusX = (cell.Width * 0.7) / 2;
+            double radiusY = (cell.Height * 0.7) / 2;
 
             Ellipse ellipse = new Ellipse {
                 Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3dbfb0")),
                 StrokeThickness = 4,
-                Width = radius * 2,
-                Height = radius * 2
+                Width = radiusX * 2,
+                Height = radiusY * 2
             };
 
-            Canvas.SetLeft(ellipse, x - radius);
-            Canvas.SetTop(ellipse, y - radius);
+            Canvas.SetLeft(ellipse, x - radiusX);
+            Canvas.SetTop(ellipse, y - radiusY);
 
             mainCanvas.Children.Add(ellipse);
         }
