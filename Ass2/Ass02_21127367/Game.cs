@@ -31,7 +31,6 @@ namespace Ass02_21127367
         // ========== Render Chessboard
         public void RenderGrid(int rows, int cols)
         {
-            Debug.WriteLine("Turn: " + (isXTurn ? "X" : "O") + " | Row: " + currentRow + " | Col: " + currentCol);
             if (rows <= 0 || cols <= 0 || mainCanvas == null) return;
 
             // --- For the first time or when the size of the grid changes

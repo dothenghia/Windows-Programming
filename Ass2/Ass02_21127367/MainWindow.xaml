@@ -6,22 +6,51 @@
         xmlns:local="clr-namespace:Ass02_21127367"
         mc:Ignorable="d"
         Height="630" Width="600"
-        Title="Tic Tac Toe"
+        Title="Caro"
         WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
         >
-    <!-- ==================== Define Page Resources ==================== -->
-
+    <!-- ==================== Define Window Resources ==================== -->
+    <Window.Resources>
+        <Style x:Key="ToobarButton_Style" TargetType="Button">
+            <Setter Property="Padding" Value="8, 4" />
+        </Style>
+    </Window.Resources>
     
-    <!-- ==================== Define Page Layout ==================== -->
+
+    <!-- ==================== Define Window Layout ==================== -->
     <DockPanel LastChildFill="True">
         <!-- Top tool bar -->
-        <ToolBar Height="30" DockPanel.Dock="Top">
-            <Button Content="Open"/>
-            <Button Content="Save"/>
-            <Button Content="Restart"/>
-            <Button Content="Exit"/>
+        <ToolBar Height="Auto" DockPanel.Dock="Top">
+            <Button Click="Open_Click" ToolTip="Open saved game (Ctrl + O)" Style="{StaticResource ToobarButton_Style}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock TextDecorations="Underline" Padding="0, 0.2, 0, 0">O</TextBlock>
+                    <TextBlock>pen</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Click="Save_Click" ToolTip="Save game (Ctrl + S)" Style="{StaticResource ToobarButton_Style}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock TextDecorations="Underline" Padding="0, 0.2, 0, 0">S</TextBlock>
+                    <TextBlock>ave</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Click="Restart_Click" ToolTip="Restart game (Ctrl + R)" Style="{StaticResource ToobarButton_Style}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock TextDecorations="Underline" Padding="0, 0.2, 0, 0">R</TextBlock>
+                    <TextBlock>estart</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Click="ChangeSize_Click" ToolTip="Change size of chessboard (Ctrl + C)" Style="{StaticResource ToobarButton_Style}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock TextDecorations="Underline" Padding="0, 0.2, 0, 0">C</TextBlock>
+                    <TextBlock>hange Size</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Click="Exit_Click" ToolTip="Exit game (Ctrl + F4)" Style="{StaticResource ToobarButton_Style}">
+                Exit
+            </Button>
         </ToolBar>
+
 
         <!-- Caro Canvas Grid -->
         <Grid DockPanel.Dock="Bottom" Margin="20, 20">
