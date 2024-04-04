@@ -21,7 +21,6 @@ namespace Ass02_21127367
             this.PreviewKeyDown += MainWindow_PreviewKeyDown;
         }
 
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             game = new Game(Main_Canvas);
@@ -29,12 +28,10 @@ namespace Ass02_21127367
             SizeChanged += MainWindow_SizeChanged;
         }
 
-
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             game.RenderGrid(game.gridCells.GetLength(0), game.gridCells.GetLength(1));
         }
-
 
         private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -78,7 +75,6 @@ namespace Ass02_21127367
             {
                 ExitProcess();
             }
-
         }
 
         private void Open_Click(object sender, RoutedEventArgs e) { OpenProcess(); }
@@ -89,60 +85,57 @@ namespace Ass02_21127367
 
         private void OpenProcess()
         {
+            // Open OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
-
             openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
 
             if (openFileDialog.ShowDialog() == true)
             {
+                // Get the file path then load the game data
                 string filePath = openFileDialog.FileName;
-
                 LoadGameDataFromFile(filePath);
             }
         }
-
         private void LoadGameDataFromFile(string filePath)
         {
             try
             {
                 string[] lines = File.ReadAllLines(filePath);
 
-                if (lines.Length >= 3)
-                {
-                    string[] size = lines[0].Split(' ');
-                    int rows = int.Parse(size[0]);
-                    int cols = int.Parse(size[1]);
-
-                    int currentPlayer = int.Parse(lines[1]);
-
-                    game.RenderGrid(rows, cols);
-
-                    for (int i = 0; i < rows; i++)
-                    {
-                        string[] cells = lines[i + 2].Split(' ');
-                        for (int j = 0; j < cols; j++)
-                        {
-                            if (cells[j] == "1")
-                            {
-                                game.gridCells[i, j] = "X";
-                            }
-                            else if (cells[j] == "2")
-                            {
-                                game.gridCells[i, j] = "O";
-                            }
-                        }
-                    }
-
-                    game.isXTurn = (currentPlayer == 1);
-
-                    game.RenderGrid(rows, cols);
-                }
-                else
+                if (lines.Length < 3)
                 {
                     MessageBox.Show("Invalid game file format.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
+
+                string[] size = lines[0].Split(' '); // Read the size of the chessboard
+                int rows = int.Parse(size[0]);
+                int cols = int.Parse(size[1]);
+
+                int currentPlayer = int.Parse(lines[1]); // Read the current Turn
+
+                game.ResetGame();
+                game.RenderGrid(rows, cols);
+
+                // Read cells
+                for (int i = 0; i < rows; i++)
+                {
+                    string[] cells = lines[i + 2].Split(' ');
+                    for (int j = 0; j < cols; j++)
+                    {
+                        if (cells[j] == "1") {
+                            game.gridCells[i, j] = "X";
+                        }
+                        else if (cells[j] == "2") {
+                            game.gridCells[i, j] = "O";
+                        }
+                    }
+                }
+
+                game.isXTurn = (currentPlayer == 1);
+                game.RenderGrid(rows, cols);
             }
             catch (Exception ex)
             {
@@ -153,6 +146,7 @@ namespace Ass02_21127367
 
         private void SaveProcess()
         {
+            // Open SaveFileDialog
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
             saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -161,33 +155,38 @@ namespace Ass02_21127367
 
             if (saveFileDialog.ShowDialog() == true)
             {
+                // Get the file path then save the game data
                 string filePath = saveFileDialog.FileName;
-
                 SaveGameDataToFile(filePath);
             }
         }
-
         private void SaveGameDataToFile(string filePath)
         {
             int rows = game.gridCells.GetLength(0);
             int cols = game.gridCells.GetLength(1);
             int currentPlayer = game.isXTurn ? 1 : 0;
-            string[,] gridData = game.gridCells;
 
             StringBuilder contentBuilder = new StringBuilder();
-            contentBuilder.AppendLine($"{rows} {cols}");
-            contentBuilder.AppendLine(currentPlayer.ToString());
+            contentBuilder.AppendLine($"{rows} {cols}"); // Save the size of the chessboard
+            contentBuilder.AppendLine(currentPlayer.ToString()); // Save the current Turn
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    contentBuilder.Append($"{gridData[i, j]} ");
+                    if (game.gridCells[i, j] == "") {
+                        contentBuilder.Append($"0 ");
+                    }
+                    else if (game.gridCells[i, j] == "X") {
+                        contentBuilder.Append($"1 ");
+                    }
+                    else if (game.gridCells[i, j] == "O") {
+                        contentBuilder.Append($"2 ");
+                    }
                 }
                 contentBuilder.AppendLine();
             }
 
             File.WriteAllText(filePath, contentBuilder.ToString());
-
             MessageBox.Show("Game data has been saved successfully.", "Save Game", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -206,7 +205,6 @@ namespace Ass02_21127367
                 game.ResetGame();
                 game.RenderGrid(changeSizeDialog.Rows, changeSizeDialog.Columns);
             }
-
         }
         private void ExitProcess()
         {
