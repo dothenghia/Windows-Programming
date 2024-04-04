@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -129,6 +130,9 @@ namespace Ass02_21127367
             // --- Check if the cell is already filled
             if (gridCells == null || gridCells[rowIndex, colIndex] != "") return;
 
+            // --- Play the sound
+            MainWindow.turnSoundPlayer.Play();
+
             // --- Handle the clicked cell
             gridCells[rowIndex, colIndex] = isXTurn ? "X" : "O";
 
@@ -141,6 +145,8 @@ namespace Ass02_21127367
                 DrawX(rect);
                 isXTurn = false;
                 if (CheckWin("X", rowIndex, colIndex)) {
+                    MainWindow.endSoundPlayer.Play(); // --- Play the sound
+
                     MessageBoxResult result = MessageBox.Show("X wins!", "Result", MessageBoxButton.OK);
                     if (result == MessageBoxResult.OK) {
                         ResetGame();
@@ -152,6 +158,8 @@ namespace Ass02_21127367
                 DrawO(rect);
                 isXTurn = true;
                 if (CheckWin("O", rowIndex, colIndex)) {
+                    MainWindow.endSoundPlayer.Play(); // --- Play the sound
+
                     MessageBoxResult result = MessageBox.Show("O wins!", "Result", MessageBoxButton.OK);
                     if (result == MessageBoxResult.OK) {
                         ResetGame();
@@ -161,6 +169,7 @@ namespace Ass02_21127367
 
             // --- Check Draw game
             if (CheckDraw()) {
+                MainWindow.endSoundPlayer.Play(); // --- Play the sound
                 MessageBoxResult result = MessageBox.Show("Draw!", "Result", MessageBoxButton.OK);
                 if (result == MessageBoxResult.OK) {
                     ResetGame();
@@ -297,6 +306,8 @@ namespace Ass02_21127367
         // ========== Reset Game
         public void ResetGame()
         {
+            MainWindow.startSoundPlayer.Play();
+
             for (int i = 0; i < gridCells.GetLength(0); i++)
             {
                 for (int j = 0; j < gridCells.GetLength(1); j++)

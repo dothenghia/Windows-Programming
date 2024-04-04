@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
+using NAudio.Wave;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,10 +17,33 @@ namespace Ass02_21127367
     {
         public Game game;
 
+        public static WaveOutEvent backgroundMusicPlayer = new WaveOutEvent();
+        public static WaveOutEvent turnSoundPlayer = new WaveOutEvent();
+        public static WaveOutEvent startSoundPlayer = new WaveOutEvent();
+        public static WaveOutEvent endSoundPlayer = new WaveOutEvent();
+
         public MainWindow()
         {
             InitializeComponent();
             this.PreviewKeyDown += MainWindow_PreviewKeyDown;
+
+            var backgroundMusicReader = new AudioFileReader("Assets/sound-end.wav");
+            backgroundMusicPlayer.Init(backgroundMusicReader);
+            backgroundMusicPlayer.Play();
+            backgroundMusicPlayer.PlaybackStopped += BackgroundMusicPlayer_PlaybackStopped;
+
+            var turnSoundReader = new AudioFileReader("Assets/sound-turn.wav");
+            turnSoundPlayer.Init(turnSoundReader);
+
+            var startSoundReader = new AudioFileReader("Assets/sound-start.wav");
+            startSoundPlayer.Init(startSoundReader);
+
+            var endSoundReader = new AudioFileReader("Assets/sound-end.wav");
+            endSoundPlayer.Init(endSoundReader);
+        }
+        private void BackgroundMusicPlayer_PlaybackStopped(object sender, StoppedEventArgs e)
+        {
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
