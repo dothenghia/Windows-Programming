@@ -272,61 +272,110 @@ namespace Ass02_21127367
         {
             // Check Row
             int count = 0;
+            List<Tuple<int, int>> winCells = new List<Tuple<int, int>>();
             for (int c = col - 4; c <= col + 4; c++)
             {
                 if (c >= 0 && c < gridCells.GetLength(1) && gridCells[row, c] == turn) {
                     count++;
-                    if (count == 5) return true;
+                    winCells.Add(new Tuple<int, int>(row, c));
+                    if (count == 5) {
+                        HighlightWinCells(winCells);
+                        return true;
+                    }
                 }
                 else {
                     count = 0;
+                    winCells.Clear();
                 }
             }
 
             // Check Column
             count = 0;
+            winCells.Clear();
             for (int r = row - 4; r <= row + 4; r++)
             {
                 if (r >= 0 && r < gridCells.GetLength(0) && gridCells[r, col] == turn) {
                     count++;
-                    if (count == 5) return true;
+                    winCells.Add(new Tuple<int, int>(r, col));
+                    if (count == 5) {
+                        HighlightWinCells(winCells);
+                        return true;
+                    }
                 }
                 else {
                     count = 0;
+                    winCells.Clear();
                 }
             }
 
             // Check main diagonal
             count = 0;
+            winCells.Clear();
             for (int d = -4; d <= 4; d++)
             {
                 int r = row + d;
                 int c = col + d;
                 if (r >= 0 && r < gridCells.GetLength(0) && c >= 0 && c < gridCells.GetLength(1) && gridCells[r, c] == turn) {
                     count++;
-                    if (count == 5) return true;
+                    winCells.Add(new Tuple<int, int>(r, c));
+                    if (count == 5) {
+                        HighlightWinCells(winCells);
+                        return true;
+                    }
                 }
                 else {
                     count = 0;
+                    winCells.Clear();
                 }
             }
 
             // Check sub diagonal
             count = 0;
+            winCells.Clear();
             for (int d = -4; d <= 4; d++)
             {
                 int r = row + d;
                 int c = col - d;
                 if (r >= 0 && r < gridCells.GetLength(0) && c >= 0 && c < gridCells.GetLength(1) && gridCells[r, c] == turn) {
                     count++;
-                    if (count == 5) return true;
+                    winCells.Add(new Tuple<int, int>(r, c));
+                    if (count == 5) {
+                        HighlightWinCells(winCells);
+                        return true;
+                    }
                 }
                 else {
                     count = 0;
+                    winCells.Clear();
                 }
             }
 
             return false;
+        }
+
+        // ========== Hightlight the win cells row
+        private void HighlightWinCells(List<Tuple<int, int>> cells)
+        {
+            foreach (var cell in cells)
+            {
+                int row = cell.Item1;
+                int col = cell.Item2;
+                double cellWidth = mainCanvas.ActualWidth / gridCells.GetLength(1);
+                double cellHeight = mainCanvas.ActualHeight / gridCells.GetLength(0);
+                double left = col * cellWidth;
+                double top = row * cellHeight;
+
+                Rectangle rect = new Rectangle
+                {
+                    Width = cellWidth,
+                    Height = cellHeight,
+                    Fill = Brushes.Salmon,
+                    Opacity = 0.4
+                };
+                Canvas.SetLeft(rect, left);
+                Canvas.SetTop(rect, top);
+                mainCanvas.Children.Add(rect);
+            }
         }
 
         // ========== Reset Game
