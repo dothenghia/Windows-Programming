@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Media;
@@ -13,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace Ass02_21127367
 {
-    public class Game
+    public class Game : INotifyPropertyChanged
     {
         public Canvas mainCanvas;
 
@@ -23,6 +24,23 @@ namespace Ass02_21127367
         public int currentRow = 0;
         public int currentCol = 0;
         public Rectangle? selectedCell = null;
+
+        private string _playerTurnText = "Player Turn: X"; // Giá trị mặc định
+        public string PlayerTurnText
+        {
+            get { return _playerTurnText; }
+            set
+            {
+                _playerTurnText = value;
+                OnPropertyChanged(nameof(PlayerTurnText));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public Game(Canvas Main_Canvas)
         {
@@ -135,6 +153,7 @@ namespace Ass02_21127367
 
             // --- Handle the clicked cell
             gridCells[rowIndex, colIndex] = isXTurn ? "X" : "O";
+            PlayerTurnText = isXTurn ? "Player Turn: O" : "Player Turn: X";
 
             currentCol = colIndex;
             currentRow = rowIndex;
@@ -146,10 +165,12 @@ namespace Ass02_21127367
                 isXTurn = false;
                 if (CheckWin("X", rowIndex, colIndex)) {
                     MainWindow.endSoundPlayer.Play(); // --- Play the sound
+                    PlayerTurnText = "X wins !";
 
                     MessageBoxResult result = MessageBox.Show("X wins!", "Result", MessageBoxButton.OK);
                     if (result == MessageBoxResult.OK) {
                         ResetGame();
+                        PlayerTurnText = "Player Turn: X";
                     }
                 }
             }
@@ -159,10 +180,12 @@ namespace Ass02_21127367
                 isXTurn = true;
                 if (CheckWin("O", rowIndex, colIndex)) {
                     MainWindow.endSoundPlayer.Play(); // --- Play the sound
+                    PlayerTurnText = "O wins !";
 
                     MessageBoxResult result = MessageBox.Show("O wins!", "Result", MessageBoxButton.OK);
                     if (result == MessageBoxResult.OK) {
                         ResetGame();
+                        PlayerTurnText = "Player Turn: X";
                     }
                 }
             }
@@ -170,9 +193,12 @@ namespace Ass02_21127367
             // --- Check Draw game
             if (CheckDraw()) {
                 MainWindow.endSoundPlayer.Play(); // --- Play the sound
+                PlayerTurnText = "Draw !";
+
                 MessageBoxResult result = MessageBox.Show("Draw!", "Result", MessageBoxButton.OK);
                 if (result == MessageBoxResult.OK) {
                     ResetGame();
+                    PlayerTurnText = "Player Turn: X";
                 }
             }
         }

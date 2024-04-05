@@ -49,6 +49,7 @@ namespace Ass02_21127367
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             game = new Game(Main_Canvas);
+            DataContext = game;
             game.RenderGrid(12, 12); // Default when the program starts
             SizeChanged += MainWindow_SizeChanged;
         }
