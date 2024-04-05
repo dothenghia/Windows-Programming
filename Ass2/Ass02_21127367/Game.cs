@@ -23,7 +23,7 @@ namespace Ass02_21127367
 
         public int currentRow = 0;
         public int currentCol = 0;
-        public Rectangle? selectedCell = null;
+        public List<Line> selectedCellLines = new List<Line>();
 
         private string _playerTurnText = "Player Turn: X"; // Giá trị mặc định
         public string PlayerTurnText
@@ -380,25 +380,68 @@ namespace Ass02_21127367
         // ========== Render Selected Cell
         private void RenderSelectedCell()
         {
-            if (selectedCell != null) {
-                mainCanvas.Children.Remove(selectedCell);
+            foreach (var line in selectedCellLines)
+            {
+                mainCanvas.Children.Remove(line);
             }
+            selectedCellLines.Clear();
 
             double cellWidth = mainCanvas.ActualWidth / gridCells.GetLength(1);
             double cellHeight = mainCanvas.ActualHeight / gridCells.GetLength(0);
+            double left = currentCol * cellWidth;
+            double top = currentRow * cellHeight;
 
-            selectedCell = new Rectangle
+            // Top line
+            Line topLine = new Line
             {
-                Width = cellWidth,
-                Height = cellHeight,
+                X1 = left,
+                Y1 = top,
+                X2 = left + cellWidth,
+                Y2 = top,
                 Stroke = Brushes.Blue,
-                StrokeThickness = 3,
-                Fill = Brushes.Transparent
+                StrokeThickness = 3
             };
-            Canvas.SetLeft(selectedCell, currentCol * cellWidth);
-            Canvas.SetTop(selectedCell, currentRow * cellHeight);
+            selectedCellLines.Add(topLine);
+            mainCanvas.Children.Add(topLine);
 
-            mainCanvas.Children.Add(selectedCell);
+            // Bottom line
+            Line bottomLine = new Line
+            {
+                X1 = left,
+                Y1 = top + cellHeight,
+                X2 = left + cellWidth,
+                Y2 = top + cellHeight,
+                Stroke = Brushes.Blue,
+                StrokeThickness = 3
+            };
+            selectedCellLines.Add(bottomLine);
+            mainCanvas.Children.Add(bottomLine);
+
+            // Left line
+            Line leftLine = new Line
+            {
+                X1 = left,
+                Y1 = top,
+                X2 = left,
+                Y2 = top + cellHeight,
+                Stroke = Brushes.Blue,
+                StrokeThickness = 3
+            };
+            selectedCellLines.Add(leftLine);
+            mainCanvas.Children.Add(leftLine);
+
+            // Right line
+            Line rightLine = new Line
+            {
+                X1 = left + cellWidth,
+                Y1 = top,
+                X2 = left + cellWidth,
+                Y2 = top + cellHeight,
+                Stroke = Brushes.Blue,
+                StrokeThickness = 3
+            };
+            selectedCellLines.Add(rightLine);
+            mainCanvas.Children.Add(rightLine);
         }
     }
 }
