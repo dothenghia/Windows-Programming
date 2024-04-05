@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ass02_21127367"
         mc:Ignorable="d"
-        Height="760" Width="700"
+        Height="760" Width="740"
         Title="Caro"
         WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"

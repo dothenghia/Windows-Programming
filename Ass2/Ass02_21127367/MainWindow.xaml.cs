@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using NAudio.Wave;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -17,33 +16,45 @@ namespace Ass02_21127367
     {
         public Game game;
 
-        public static WaveOutEvent backgroundMusicPlayer = new WaveOutEvent();
-        public static WaveOutEvent turnSoundPlayer = new WaveOutEvent();
-        public static WaveOutEvent startSoundPlayer = new WaveOutEvent();
-        public static WaveOutEvent endSoundPlayer = new WaveOutEvent();
+        public static SoundPlayer turnSoundPlayer = new SoundPlayer("Assets/sound-turn.wav");
+        public static SoundPlayer startSoundPlayer = new SoundPlayer("Assets/sound-start.wav");
+        public static SoundPlayer endSoundPlayer = new SoundPlayer("Assets/sound-end.wav");
+
+        public MediaPlayer backgroundMediaPlayer;
 
         public MainWindow()
         {
             InitializeComponent();
             this.PreviewKeyDown += MainWindow_PreviewKeyDown;
 
-            var backgroundMusicReader = new AudioFileReader("Assets/sound-end.wav");
-            backgroundMusicPlayer.Init(backgroundMusicReader);
-            backgroundMusicPlayer.Play();
-            backgroundMusicPlayer.PlaybackStopped += BackgroundMusicPlayer_PlaybackStopped;
+            turnSoundPlayer.Load();
+            startSoundPlayer.Load();
+            endSoundPlayer.Load();
 
-            var turnSoundReader = new AudioFileReader("Assets/sound-turn.wav");
-            turnSoundPlayer.Init(turnSoundReader);
+            backgroundMediaPlayer = new MediaPlayer();
+            backgroundMediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
+            backgroundMediaPlayer.MediaFailed += MediaPlayer_MediaFailed;
 
-            var startSoundReader = new AudioFileReader("Assets/sound-start.wav");
-            startSoundPlayer.Init(startSoundReader);
-
-            var endSoundReader = new AudioFileReader("Assets/sound-end.wav");
-            endSoundPlayer.Init(endSoundReader);
+            try
+            {
+                backgroundMediaPlayer.Open(new Uri("Assets/background.mp3", UriKind.RelativeOrAbsolute));
+                backgroundMediaPlayer.Play();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading background music: " + ex.Message);
+            }
         }
-        private void BackgroundMusicPlayer_PlaybackStopped(object sender, StoppedEventArgs e)
+
+        private void MediaPlayer_MediaFailed(object sender, ExceptionEventArgs e)
         {
-            
+            MessageBox.Show("Media failed: " + e.ErrorException.Message);
+        }
+
+        private void MediaPlayer_MediaEnded(object sender, EventArgs e)
+        {
+            backgroundMediaPlayer.Position = TimeSpan.Zero;
+            backgroundMediaPlayer.Play();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
