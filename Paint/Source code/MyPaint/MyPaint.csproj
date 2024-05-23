@@ -1,0 +1,172 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\circle.png" />
+    <None Remove="Assets\clean.png" />
+    <None Remove="Assets\clipboard.png" />
+    <None Remove="Assets\down-arrow.png" />
+    <None Remove="Assets\ellipse.png" />
+    <None Remove="Assets\exit.png" />
+    <None Remove="Assets\folder.png" />
+    <None Remove="Assets\layer.png" />
+    <None Remove="Assets\left-arrow.png" />
+    <None Remove="Assets\line.png" />
+    <None Remove="Assets\logo.ico" />
+    <None Remove="Assets\logo.png" />
+    <None Remove="Assets\open.png" />
+    <None Remove="Assets\rectangle.png" />
+    <None Remove="Assets\redo.png" />
+    <None Remove="Assets\right-arrow.png" />
+    <None Remove="Assets\rotate-left.png" />
+    <None Remove="Assets\rotate-right.png" />
+    <None Remove="Assets\save.png" />
+    <None Remove="Assets\select.png" />
+    <None Remove="Assets\square.png" />
+    <None Remove="Assets\star.png" />
+    <None Remove="Assets\stroke-dash-dot-dot.png" />
+    <None Remove="Assets\stroke-dash-dot.png" />
+    <None Remove="Assets\stroke-dash.png" />
+    <None Remove="Assets\stroke-dot.png" />
+    <None Remove="Assets\stroke-solid.png" />
+    <None Remove="Assets\stroke.png" />
+    <None Remove="Assets\text.png" />
+    <None Remove="Assets\thick.png" />
+    <None Remove="Assets\triangle.png" />
+    <None Remove="Assets\undo.png" />
+    <None Remove="Assets\up-arrow.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\circle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\clean.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\clipboard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\down-arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\ellipse.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\exit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\layer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\left-arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\line.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\logo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\rectangle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\redo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\right-arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\rotate-left.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\rotate-right.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\save.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\select.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\square.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\star.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\stroke-dash-dot-dot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\stroke-dash-dot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\stroke-dash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\stroke-dot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\stroke-solid.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\stroke.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\text.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\thick.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\triangle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\undo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\up-arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ICommand\ICommand.csproj" />
+    <ProjectReference Include="..\IShape\IShape.csproj" />
+    <ProjectReference Include="..\MyClipboardControl\MyClipboardControl.csproj" />
+    <ProjectReference Include="..\MyCutCommand\MyCutCommand.csproj" />
+    <ProjectReference Include="..\MyDownArrow\MyDownArrow.csproj" />
+    <ProjectReference Include="..\MyEllipse\MyEllipse.csproj" />
+    <ProjectReference Include="..\MyLeftArrow\MyLeftArrow.csproj" />
+    <ProjectReference Include="..\MyLine\MyLine.csproj" />
+    <ProjectReference Include="..\MyRectangle\MyRectangle.csproj" />
+    <ProjectReference Include="..\MyRightArrow\MyRightArrow.csproj" />
+    <ProjectReference Include="..\MyStar\MyStar.csproj" />
+    <ProjectReference Include="..\MyTriangle\MyTriangle.csproj" />
+    <ProjectReference Include="..\MyUpArrow\MyUpArrow.csproj" />
+    <ProjectReference Include="..\RevisionControl\MyRevisionControl.csproj" />
+    <ProjectReference Include="..\ToolbarCommand\MyToolbarCommand.csproj" />
+    <ProjectReference Include="..\UndoCommand\MyUndoCommand.csproj" />
+  </ItemGroup>
+
+</Project>

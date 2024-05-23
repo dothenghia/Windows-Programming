@@ -1,0 +1,1270 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyPaint\\MyPaint.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj",
+        "projectName": "ICommand",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj",
+        "projectName": "IShape",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj",
+        "projectName": "MyClipboardControl",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyCutCommand\\MyCutCommand.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyCutCommand\\MyCutCommand.csproj",
+        "projectName": "MyCutCommand",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyCutCommand\\MyCutCommand.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyCutCommand\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyDownArrow\\MyDownArrow.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyDownArrow\\MyDownArrow.csproj",
+        "projectName": "MyDownArrow",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyDownArrow\\MyDownArrow.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyDownArrow\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyEllipse\\MyEllipse.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyEllipse\\MyEllipse.csproj",
+        "projectName": "MyEllipse",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyEllipse\\MyEllipse.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyEllipse\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLeftArrow\\MyLeftArrow.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLeftArrow\\MyLeftArrow.csproj",
+        "projectName": "MyLeftArrow",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLeftArrow\\MyLeftArrow.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLeftArrow\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLine\\MyLine.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLine\\MyLine.csproj",
+        "projectName": "MyLine",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLine\\MyLine.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLine\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyPaint\\MyPaint.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyPaint\\MyPaint.csproj",
+        "projectName": "MyPaint",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyPaint\\MyPaint.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyPaint\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyCutCommand\\MyCutCommand.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyCutCommand\\MyCutCommand.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyDownArrow\\MyDownArrow.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyDownArrow\\MyDownArrow.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyEllipse\\MyEllipse.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyEllipse\\MyEllipse.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLeftArrow\\MyLeftArrow.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLeftArrow\\MyLeftArrow.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLine\\MyLine.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLine\\MyLine.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRectangle\\MyRectangle.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRectangle\\MyRectangle.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRightArrow\\MyRightArrow.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRightArrow\\MyRightArrow.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyStar\\MyStar.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyStar\\MyStar.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyTriangle\\MyTriangle.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyTriangle\\MyTriangle.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyUpArrow\\MyUpArrow.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyUpArrow\\MyUpArrow.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ToolbarCommand\\MyToolbarCommand.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ToolbarCommand\\MyToolbarCommand.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\UndoCommand\\MyUndoCommand.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\UndoCommand\\MyUndoCommand.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Extended.Wpf.Toolkit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRectangle\\MyRectangle.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRectangle\\MyRectangle.csproj",
+        "projectName": "MyRectangle",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRectangle\\MyRectangle.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRectangle\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRightArrow\\MyRightArrow.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRightArrow\\MyRightArrow.csproj",
+        "projectName": "MyRightArrow",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRightArrow\\MyRightArrow.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRightArrow\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyStar\\MyStar.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyStar\\MyStar.csproj",
+        "projectName": "MyStar",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyStar\\MyStar.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyStar\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyTriangle\\MyTriangle.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyTriangle\\MyTriangle.csproj",
+        "projectName": "MyTriangle",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyTriangle\\MyTriangle.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyTriangle\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyUpArrow\\MyUpArrow.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyUpArrow\\MyUpArrow.csproj",
+        "projectName": "MyUpArrow",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyUpArrow\\MyUpArrow.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyUpArrow\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj",
+        "projectName": "MyRevisionControl",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ToolbarCommand\\MyToolbarCommand.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ToolbarCommand\\MyToolbarCommand.csproj",
+        "projectName": "MyToolbarCommand",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ToolbarCommand\\MyToolbarCommand.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ToolbarCommand\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\UndoCommand\\MyUndoCommand.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\UndoCommand\\MyUndoCommand.csproj",
+        "projectName": "MyUndoCommand",
+        "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\UndoCommand\\MyUndoCommand.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\UndoCommand\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj"
+              },
+              "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj": {
+                "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

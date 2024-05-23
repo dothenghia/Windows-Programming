@@ -1,0 +1,595 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "Extended.Wpf.Toolkit/4.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Xceed.Wpf.AvalonDock.NET5.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Aero.NET5.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Metro.NET5.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.VS2010.NET5.dll": {},
+          "lib/net5.0/Xceed.Wpf.Toolkit.NET5.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Xceed.Wpf.AvalonDock.NET5.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Aero.NET5.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Metro.NET5.dll": {},
+          "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.VS2010.NET5.dll": {},
+          "lib/net5.0/Xceed.Wpf.Toolkit.NET5.dll": {}
+        },
+        "resource": {
+          "lib/net5.0/cs-CZ/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "cs-CZ"
+          },
+          "lib/net5.0/de/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net5.0/es/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net5.0/fr/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net5.0/hu/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net5.0/it/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net5.0/ja-JP/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "lib/net5.0/pt-BR/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net5.0/ro/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net5.0/ru/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net5.0/sv/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net5.0/zh-Hans/Xceed.Wpf.AvalonDock.NET5.resources.dll": {
+            "locale": "zh-Hans"
+          }
+        }
+      },
+      "ICommand/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ICommand.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ICommand.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "IShape/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/IShape.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IShape.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyClipboardControl/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ICommand": "1.0.0",
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyClipboardControl.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyClipboardControl.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyCutCommand/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ICommand": "1.0.0",
+          "IShape": "1.0.0",
+          "MyClipboardControl": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyCutCommand.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyCutCommand.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyDownArrow/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyDownArrow.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyDownArrow.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyEllipse/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyEllipse.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyEllipse.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyLeftArrow/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyLeftArrow.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyLeftArrow.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyLine/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyLine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyLine.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyRectangle/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyRectangle.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyRectangle.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyRevisionControl/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyRevisionControl.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyRevisionControl.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyRightArrow/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyRightArrow.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyRightArrow.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyStar/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyStar.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyStar.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyToolbarCommand/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ICommand": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyToolbarCommand.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyToolbarCommand.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyTriangle/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyTriangle.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyTriangle.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyUndoCommand/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ICommand": "1.0.0",
+          "MyRevisionControl": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyUndoCommand.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyUndoCommand.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "MyUpArrow/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "IShape": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyUpArrow.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyUpArrow.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "Extended.Wpf.Toolkit/4.6.0": {
+      "sha512": "W67USjczMau4R5g8aU9/knYpCqnFurZ/kmzXnSvqxhC9YR3KaUTT2L+95WWoL1u9qlQ48U6ORP9s6I6x9/yW4Q==",
+      "type": "package",
+      "path": "extended.wpf.toolkit/4.6.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "Xceed_Logo_Retina-400x400.png",
+        "extended.wpf.toolkit.4.6.0.nupkg.sha512",
+        "extended.wpf.toolkit.nuspec",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.Aero.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.Metro.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.Themes.VS2010.dll",
+        "lib/net40/Xceed.Wpf.AvalonDock.dll",
+        "lib/net40/Xceed.Wpf.Toolkit.dll",
+        "lib/net40/cs-CZ/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/de/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/es/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/fr/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/hu/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/it/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ja-JP/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/nl-BE/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/pt-BR/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ro/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/ru/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/sv/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net40/zh-Hans/Xceed.Wpf.AvalonDock.resources.dll",
+        "lib/net5.0/Xceed.Wpf.AvalonDock.NET5.dll",
+        "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Aero.NET5.dll",
+        "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.Metro.NET5.dll",
+        "lib/net5.0/Xceed.Wpf.AvalonDock.Themes.VS2010.NET5.dll",
+        "lib/net5.0/Xceed.Wpf.Toolkit.NET5.dll",
+        "lib/net5.0/cs-CZ/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/de/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/es/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/fr/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/hu/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/it/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/ja-JP/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/pt-BR/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/ro/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/ru/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/sv/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "lib/net5.0/zh-Hans/Xceed.Wpf.AvalonDock.NET5.resources.dll",
+        "tools/install.ps1"
+      ]
+    },
+    "ICommand/1.0.0": {
+      "type": "project",
+      "path": "../ICommand/ICommand.csproj",
+      "msbuildProject": "../ICommand/ICommand.csproj"
+    },
+    "IShape/1.0.0": {
+      "type": "project",
+      "path": "../IShape/IShape.csproj",
+      "msbuildProject": "../IShape/IShape.csproj"
+    },
+    "MyClipboardControl/1.0.0": {
+      "type": "project",
+      "path": "../MyClipboardControl/MyClipboardControl.csproj",
+      "msbuildProject": "../MyClipboardControl/MyClipboardControl.csproj"
+    },
+    "MyCutCommand/1.0.0": {
+      "type": "project",
+      "path": "../MyCutCommand/MyCutCommand.csproj",
+      "msbuildProject": "../MyCutCommand/MyCutCommand.csproj"
+    },
+    "MyDownArrow/1.0.0": {
+      "type": "project",
+      "path": "../MyDownArrow/MyDownArrow.csproj",
+      "msbuildProject": "../MyDownArrow/MyDownArrow.csproj"
+    },
+    "MyEllipse/1.0.0": {
+      "type": "project",
+      "path": "../MyEllipse/MyEllipse.csproj",
+      "msbuildProject": "../MyEllipse/MyEllipse.csproj"
+    },
+    "MyLeftArrow/1.0.0": {
+      "type": "project",
+      "path": "../MyLeftArrow/MyLeftArrow.csproj",
+      "msbuildProject": "../MyLeftArrow/MyLeftArrow.csproj"
+    },
+    "MyLine/1.0.0": {
+      "type": "project",
+      "path": "../MyLine/MyLine.csproj",
+      "msbuildProject": "../MyLine/MyLine.csproj"
+    },
+    "MyRectangle/1.0.0": {
+      "type": "project",
+      "path": "../MyRectangle/MyRectangle.csproj",
+      "msbuildProject": "../MyRectangle/MyRectangle.csproj"
+    },
+    "MyRevisionControl/1.0.0": {
+      "type": "project",
+      "path": "../RevisionControl/MyRevisionControl.csproj",
+      "msbuildProject": "../RevisionControl/MyRevisionControl.csproj"
+    },
+    "MyRightArrow/1.0.0": {
+      "type": "project",
+      "path": "../MyRightArrow/MyRightArrow.csproj",
+      "msbuildProject": "../MyRightArrow/MyRightArrow.csproj"
+    },
+    "MyStar/1.0.0": {
+      "type": "project",
+      "path": "../MyStar/MyStar.csproj",
+      "msbuildProject": "../MyStar/MyStar.csproj"
+    },
+    "MyToolbarCommand/1.0.0": {
+      "type": "project",
+      "path": "../ToolbarCommand/MyToolbarCommand.csproj",
+      "msbuildProject": "../ToolbarCommand/MyToolbarCommand.csproj"
+    },
+    "MyTriangle/1.0.0": {
+      "type": "project",
+      "path": "../MyTriangle/MyTriangle.csproj",
+      "msbuildProject": "../MyTriangle/MyTriangle.csproj"
+    },
+    "MyUndoCommand/1.0.0": {
+      "type": "project",
+      "path": "../UndoCommand/MyUndoCommand.csproj",
+      "msbuildProject": "../UndoCommand/MyUndoCommand.csproj"
+    },
+    "MyUpArrow/1.0.0": {
+      "type": "project",
+      "path": "../MyUpArrow/MyUpArrow.csproj",
+      "msbuildProject": "../MyUpArrow/MyUpArrow.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "Extended.Wpf.Toolkit >= 4.6.0",
+      "ICommand >= 1.0.0",
+      "IShape >= 1.0.0",
+      "MyClipboardControl >= 1.0.0",
+      "MyCutCommand >= 1.0.0",
+      "MyDownArrow >= 1.0.0",
+      "MyEllipse >= 1.0.0",
+      "MyLeftArrow >= 1.0.0",
+      "MyLine >= 1.0.0",
+      "MyRectangle >= 1.0.0",
+      "MyRevisionControl >= 1.0.0",
+      "MyRightArrow >= 1.0.0",
+      "MyStar >= 1.0.0",
+      "MyToolbarCommand >= 1.0.0",
+      "MyTriangle >= 1.0.0",
+      "MyUndoCommand >= 1.0.0",
+      "MyUpArrow >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyPaint\\MyPaint.csproj",
+      "projectName": "MyPaint",
+      "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyPaint\\MyPaint.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyPaint\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ICommand\\ICommand.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\IShape\\IShape.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyClipboardControl\\MyClipboardControl.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyCutCommand\\MyCutCommand.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyCutCommand\\MyCutCommand.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyDownArrow\\MyDownArrow.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyDownArrow\\MyDownArrow.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyEllipse\\MyEllipse.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyEllipse\\MyEllipse.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLeftArrow\\MyLeftArrow.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLeftArrow\\MyLeftArrow.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLine\\MyLine.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyLine\\MyLine.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRectangle\\MyRectangle.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRectangle\\MyRectangle.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRightArrow\\MyRightArrow.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyRightArrow\\MyRightArrow.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyStar\\MyStar.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyStar\\MyStar.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyTriangle\\MyTriangle.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyTriangle\\MyTriangle.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyUpArrow\\MyUpArrow.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\MyUpArrow\\MyUpArrow.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\RevisionControl\\MyRevisionControl.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ToolbarCommand\\MyToolbarCommand.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\ToolbarCommand\\MyToolbarCommand.csproj"
+            },
+            "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\UndoCommand\\MyUndoCommand.csproj": {
+              "projectPath": "C:\\Users\\PC\\Documents\\GitHub\\Paint-Application\\Paint-Application\\UndoCommand\\MyUndoCommand.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "Extended.Wpf.Toolkit": {
+            "target": "Package",
+            "version": "[4.6.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
